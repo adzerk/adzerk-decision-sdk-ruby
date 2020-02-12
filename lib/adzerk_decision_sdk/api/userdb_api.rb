@@ -20,39 +20,40 @@ module AdzerkDecisionSdk
       @api_client = api_client
     end
     # Add Custom Properties to a User
-    # @param azk [String] The User&#39;s UserDB Key
     # @param network_id [Integer] Your Network Id
+    # @param user_key [String] The User&#39;s UserDB Key
     # @param [Hash] opts the optional parameters
     # @option opts [Object] :body 
     # @return [nil]
-    def add_custom_properties(azk, network_id, opts = {})
-      add_custom_properties_with_http_info(azk, network_id, opts)
+    def add_custom_properties(network_id, user_key, opts = {})
+      add_custom_properties_with_http_info(network_id, user_key, opts)
       nil
     end
 
     # Add Custom Properties to a User
-    # @param azk [String] The User&#39;s UserDB Key
     # @param network_id [Integer] Your Network Id
+    # @param user_key [String] The User&#39;s UserDB Key
     # @param [Hash] opts the optional parameters
     # @option opts [Object] :body 
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def add_custom_properties_with_http_info(azk, network_id, opts = {})
+    def add_custom_properties_with_http_info(network_id, user_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UserdbApi.add_custom_properties ...'
-      end
-      # verify the required parameter 'azk' is set
-      if @api_client.config.client_side_validation && azk.nil?
-        fail ArgumentError, "Missing the required parameter 'azk' when calling UserdbApi.add_custom_properties"
       end
       # verify the required parameter 'network_id' is set
       if @api_client.config.client_side_validation && network_id.nil?
         fail ArgumentError, "Missing the required parameter 'network_id' when calling UserdbApi.add_custom_properties"
+      end
+      # verify the required parameter 'user_key' is set
+      if @api_client.config.client_side_validation && user_key.nil?
+        fail ArgumentError, "Missing the required parameter 'user_key' when calling UserdbApi.add_custom_properties"
       end
       # resource path
       local_var_path = '/udb/{networkId}/custom'.sub('{' + 'networkId' + '}', CGI.escape(network_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'userKey'] = user_key
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -160,31 +161,27 @@ module AdzerkDecisionSdk
     end
 
     # Add User to a Retargeting Segment
-    # @param azk [String] The User&#39;s UserDB Key
     # @param network_id [Integer] Your Network Id
     # @param advertiser_id [Integer] The Advertiser&#39;s ID
     # @param retargeting_segment_id [Integer] The Segment&#39;s ID
+    # @param user_key [String] The User&#39;s UserDB Key
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def add_retargeting_segment(azk, network_id, advertiser_id, retargeting_segment_id, opts = {})
-      add_retargeting_segment_with_http_info(azk, network_id, advertiser_id, retargeting_segment_id, opts)
+    def add_retargeting_segment(network_id, advertiser_id, retargeting_segment_id, user_key, opts = {})
+      add_retargeting_segment_with_http_info(network_id, advertiser_id, retargeting_segment_id, user_key, opts)
       nil
     end
 
     # Add User to a Retargeting Segment
-    # @param azk [String] The User&#39;s UserDB Key
     # @param network_id [Integer] Your Network Id
     # @param advertiser_id [Integer] The Advertiser&#39;s ID
     # @param retargeting_segment_id [Integer] The Segment&#39;s ID
+    # @param user_key [String] The User&#39;s UserDB Key
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def add_retargeting_segment_with_http_info(azk, network_id, advertiser_id, retargeting_segment_id, opts = {})
+    def add_retargeting_segment_with_http_info(network_id, advertiser_id, retargeting_segment_id, user_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UserdbApi.add_retargeting_segment ...'
-      end
-      # verify the required parameter 'azk' is set
-      if @api_client.config.client_side_validation && azk.nil?
-        fail ArgumentError, "Missing the required parameter 'azk' when calling UserdbApi.add_retargeting_segment"
       end
       # verify the required parameter 'network_id' is set
       if @api_client.config.client_side_validation && network_id.nil?
@@ -198,11 +195,16 @@ module AdzerkDecisionSdk
       if @api_client.config.client_side_validation && retargeting_segment_id.nil?
         fail ArgumentError, "Missing the required parameter 'retargeting_segment_id' when calling UserdbApi.add_retargeting_segment"
       end
+      # verify the required parameter 'user_key' is set
+      if @api_client.config.client_side_validation && user_key.nil?
+        fail ArgumentError, "Missing the required parameter 'user_key' when calling UserdbApi.add_retargeting_segment"
+      end
       # resource path
       local_var_path = '/udb/{networkId}/rt/{advertiserId}/{retargetingSegmentId}/i.gif'.sub('{' + 'networkId' + '}', CGI.escape(network_id.to_s)).sub('{' + 'advertiserId' + '}', CGI.escape(advertiser_id.to_s)).sub('{' + 'retargetingSegmentId' + '}', CGI.escape(retargeting_segment_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'userKey'] = user_key
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -364,22 +366,22 @@ module AdzerkDecisionSdk
 
     # IP Address Override
     # @param network_id [Integer] Your Network Id
-    # @param azk [String] The User&#39;s UserDB Key
+    # @param user_key [String] The User&#39;s UserDB Key
     # @param ip [String] This is the IP to exclude
     # @param [Hash] opts the optional parameters
     # @return [Object]
-    def ip_override(network_id, azk, ip, opts = {})
-      data, _status_code, _headers = ip_override_with_http_info(network_id, azk, ip, opts)
+    def ip_override(network_id, user_key, ip, opts = {})
+      data, _status_code, _headers = ip_override_with_http_info(network_id, user_key, ip, opts)
       data
     end
 
     # IP Address Override
     # @param network_id [Integer] Your Network Id
-    # @param azk [String] The User&#39;s UserDB Key
+    # @param user_key [String] The User&#39;s UserDB Key
     # @param ip [String] This is the IP to exclude
     # @param [Hash] opts the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
-    def ip_override_with_http_info(network_id, azk, ip, opts = {})
+    def ip_override_with_http_info(network_id, user_key, ip, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UserdbApi.ip_override ...'
       end
@@ -387,9 +389,9 @@ module AdzerkDecisionSdk
       if @api_client.config.client_side_validation && network_id.nil?
         fail ArgumentError, "Missing the required parameter 'network_id' when calling UserdbApi.ip_override"
       end
-      # verify the required parameter 'azk' is set
-      if @api_client.config.client_side_validation && azk.nil?
-        fail ArgumentError, "Missing the required parameter 'azk' when calling UserdbApi.ip_override"
+      # verify the required parameter 'user_key' is set
+      if @api_client.config.client_side_validation && user_key.nil?
+        fail ArgumentError, "Missing the required parameter 'user_key' when calling UserdbApi.ip_override"
       end
       # verify the required parameter 'ip' is set
       if @api_client.config.client_side_validation && ip.nil?
@@ -400,6 +402,7 @@ module AdzerkDecisionSdk
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'userKey'] = user_key
       query_params[:'ip'] = ip
 
       # header parameters
@@ -436,35 +439,35 @@ module AdzerkDecisionSdk
     end
 
     # User Matching
-    # @param azk [String] The User&#39;s UserDB Key
     # @param network_id [Integer] Your Network Id
+    # @param user_key [String] The User&#39;s UserDB Key
     # @param partner_id [Integer] The ID of the RTB provider in Adzerk. Contact Support if you don&#39;t have the ID.
     # @param user_id [Integer] This is the UserID the individual RTB provider has of the user. This is NOT the UserDB userkey.
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def match_user(azk, network_id, partner_id, user_id, opts = {})
-      match_user_with_http_info(azk, network_id, partner_id, user_id, opts)
+    def match_user(network_id, user_key, partner_id, user_id, opts = {})
+      match_user_with_http_info(network_id, user_key, partner_id, user_id, opts)
       nil
     end
 
     # User Matching
-    # @param azk [String] The User&#39;s UserDB Key
     # @param network_id [Integer] Your Network Id
+    # @param user_key [String] The User&#39;s UserDB Key
     # @param partner_id [Integer] The ID of the RTB provider in Adzerk. Contact Support if you don&#39;t have the ID.
     # @param user_id [Integer] This is the UserID the individual RTB provider has of the user. This is NOT the UserDB userkey.
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def match_user_with_http_info(azk, network_id, partner_id, user_id, opts = {})
+    def match_user_with_http_info(network_id, user_key, partner_id, user_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UserdbApi.match_user ...'
-      end
-      # verify the required parameter 'azk' is set
-      if @api_client.config.client_side_validation && azk.nil?
-        fail ArgumentError, "Missing the required parameter 'azk' when calling UserdbApi.match_user"
       end
       # verify the required parameter 'network_id' is set
       if @api_client.config.client_side_validation && network_id.nil?
         fail ArgumentError, "Missing the required parameter 'network_id' when calling UserdbApi.match_user"
+      end
+      # verify the required parameter 'user_key' is set
+      if @api_client.config.client_side_validation && user_key.nil?
+        fail ArgumentError, "Missing the required parameter 'user_key' when calling UserdbApi.match_user"
       end
       # verify the required parameter 'partner_id' is set
       if @api_client.config.client_side_validation && partner_id.nil?
@@ -479,6 +482,7 @@ module AdzerkDecisionSdk
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'userKey'] = user_key
       query_params[:'partnerId'] = partner_id
       query_params[:'userId'] = user_id
 
@@ -514,37 +518,38 @@ module AdzerkDecisionSdk
     end
 
     # Opt-Out a User
-    # @param azk [String] The User&#39;s UserDB Key
     # @param network_id [Integer] Your Network Id
+    # @param user_key [String] The User&#39;s UserDB Key
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def opt_out(azk, network_id, opts = {})
-      opt_out_with_http_info(azk, network_id, opts)
+    def opt_out(network_id, user_key, opts = {})
+      opt_out_with_http_info(network_id, user_key, opts)
       nil
     end
 
     # Opt-Out a User
-    # @param azk [String] The User&#39;s UserDB Key
     # @param network_id [Integer] Your Network Id
+    # @param user_key [String] The User&#39;s UserDB Key
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def opt_out_with_http_info(azk, network_id, opts = {})
+    def opt_out_with_http_info(network_id, user_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UserdbApi.opt_out ...'
-      end
-      # verify the required parameter 'azk' is set
-      if @api_client.config.client_side_validation && azk.nil?
-        fail ArgumentError, "Missing the required parameter 'azk' when calling UserdbApi.opt_out"
       end
       # verify the required parameter 'network_id' is set
       if @api_client.config.client_side_validation && network_id.nil?
         fail ArgumentError, "Missing the required parameter 'network_id' when calling UserdbApi.opt_out"
+      end
+      # verify the required parameter 'user_key' is set
+      if @api_client.config.client_side_validation && user_key.nil?
+        fail ArgumentError, "Missing the required parameter 'user_key' when calling UserdbApi.opt_out"
       end
       # resource path
       local_var_path = '/udb/{networkId}/optout/i.gif'.sub('{' + 'networkId' + '}', CGI.escape(network_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'userKey'] = user_key
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -578,37 +583,38 @@ module AdzerkDecisionSdk
     end
 
     # Read a User's UserDB Record
-    # @param azk [String] The User&#39;s UserDB Key
     # @param network_id [Integer] Your Network Id
+    # @param user_key [String] The User&#39;s UserDB Key
     # @param [Hash] opts the optional parameters
     # @return [Object]
-    def read(azk, network_id, opts = {})
-      data, _status_code, _headers = read_with_http_info(azk, network_id, opts)
+    def read(network_id, user_key, opts = {})
+      data, _status_code, _headers = read_with_http_info(network_id, user_key, opts)
       data
     end
 
     # Read a User&#39;s UserDB Record
-    # @param azk [String] The User&#39;s UserDB Key
     # @param network_id [Integer] Your Network Id
+    # @param user_key [String] The User&#39;s UserDB Key
     # @param [Hash] opts the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
-    def read_with_http_info(azk, network_id, opts = {})
+    def read_with_http_info(network_id, user_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UserdbApi.read ...'
-      end
-      # verify the required parameter 'azk' is set
-      if @api_client.config.client_side_validation && azk.nil?
-        fail ArgumentError, "Missing the required parameter 'azk' when calling UserdbApi.read"
       end
       # verify the required parameter 'network_id' is set
       if @api_client.config.client_side_validation && network_id.nil?
         fail ArgumentError, "Missing the required parameter 'network_id' when calling UserdbApi.read"
+      end
+      # verify the required parameter 'user_key' is set
+      if @api_client.config.client_side_validation && user_key.nil?
+        fail ArgumentError, "Missing the required parameter 'user_key' when calling UserdbApi.read"
       end
       # resource path
       local_var_path = '/udb/{networkId}/read'.sub('{' + 'networkId' + '}', CGI.escape(network_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'userKey'] = user_key
 
       # header parameters
       header_params = opts[:header_params] || {}

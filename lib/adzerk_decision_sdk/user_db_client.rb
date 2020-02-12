@@ -6,10 +6,6 @@ module AdzerkDecisionSdk
       @api = UserdbApi.new(api_client)
     end
 
-    def set_user_cookie(network_id, user_key)
-      @api.set_user_cookie(network_id, user_key)
-    end
-
     def add_custom_properties(network_id, user_key, properties)
       @api.add_custom_properties(user_key, advertiser_id, { body: properties })
     end
@@ -20,7 +16,7 @@ module AdzerkDecisionSdk
     end
 
     def add_retargeting_segment(network_id, user_key, advertiser_id, retargeting_segment_id)
-      @api.add_retargeting_segment(user_key, network_id, advertiser_id, retargeting_segment_id)
+      @api.add_retargeting_segment(network_id, advertiser_id, retargeting_segment_id, user_key)
     end
 
     def forget(network_id, user_key)
@@ -36,15 +32,15 @@ module AdzerkDecisionSdk
     end
 
     def match_user(network_id, user_key, partner_id, user_id)
-      @api.match_user(user_key, network_id, partner_id, user_id)
+      @api.match_user(network_id, user_key, partner_id, user_id)
     end
 
     def opt_out(network_id, user_key)
-      @api.opt_out(user_key, network_id)
+      @api.opt_out(network_id, user_key)
     end
 
     def read(network_id, user_key)
-      @api.read(user_key, network_id)
+      @api.read(network_id, user_key)
     end
   end
 end

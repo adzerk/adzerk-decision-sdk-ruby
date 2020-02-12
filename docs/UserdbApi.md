@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 ## add_custom_properties
 
-> add_custom_properties(azk, network_id, opts)
+> add_custom_properties(network_id, user_key, opts)
 
 
 
@@ -39,14 +39,14 @@ AdzerkDecisionSdk.configure do |config|
 end
 
 api_instance = AdzerkDecisionSdk::UserdbApi.new
-azk = 'azk_example' # String | The User's UserDB Key
 network_id = 56 # Integer | Your Network Id
+user_key = 'user_key_example' # String | The User's UserDB Key
 opts = {
   body: nil # Object | 
 }
 
 begin
-  api_instance.add_custom_properties(azk, network_id, opts)
+  api_instance.add_custom_properties(network_id, user_key, opts)
 rescue AdzerkDecisionSdk::ApiError => e
   puts "Exception when calling UserdbApi->add_custom_properties: #{e}"
 end
@@ -57,8 +57,8 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **azk** | **String**| The User&#39;s UserDB Key | 
  **network_id** | **Integer**| Your Network Id | 
+ **user_key** | **String**| The User&#39;s UserDB Key | 
  **body** | **Object**|  | [optional] 
 
 ### Return type
@@ -126,7 +126,7 @@ No authorization required
 
 ## add_retargeting_segment
 
-> add_retargeting_segment(azk, network_id, advertiser_id, retargeting_segment_id)
+> add_retargeting_segment(network_id, advertiser_id, retargeting_segment_id, user_key)
 
 
 
@@ -139,13 +139,13 @@ Add User to a Retargeting Segment
 require 'adzerk_decision_sdk'
 
 api_instance = AdzerkDecisionSdk::UserdbApi.new
-azk = 'azk_example' # String | The User's UserDB Key
 network_id = 56 # Integer | Your Network Id
 advertiser_id = 56 # Integer | The Advertiser's ID
 retargeting_segment_id = 56 # Integer | The Segment's ID
+user_key = 'user_key_example' # String | The User's UserDB Key
 
 begin
-  api_instance.add_retargeting_segment(azk, network_id, advertiser_id, retargeting_segment_id)
+  api_instance.add_retargeting_segment(network_id, advertiser_id, retargeting_segment_id, user_key)
 rescue AdzerkDecisionSdk::ApiError => e
   puts "Exception when calling UserdbApi->add_retargeting_segment: #{e}"
 end
@@ -156,10 +156,10 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **azk** | **String**| The User&#39;s UserDB Key | 
  **network_id** | **Integer**| Your Network Id | 
  **advertiser_id** | **Integer**| The Advertiser&#39;s ID | 
  **retargeting_segment_id** | **Integer**| The Segment&#39;s ID | 
+ **user_key** | **String**| The User&#39;s UserDB Key | 
 
 ### Return type
 
@@ -287,7 +287,7 @@ nil (empty response body)
 
 ## ip_override
 
-> Object ip_override(network_id, azk, ip)
+> Object ip_override(network_id, user_key, ip)
 
 
 
@@ -301,11 +301,11 @@ require 'adzerk_decision_sdk'
 
 api_instance = AdzerkDecisionSdk::UserdbApi.new
 network_id = 56 # Integer | Your Network Id
-azk = 'azk_example' # String | The User's UserDB Key
+user_key = 'user_key_example' # String | The User's UserDB Key
 ip = 'ip_example' # String | This is the IP to exclude
 
 begin
-  result = api_instance.ip_override(network_id, azk, ip)
+  result = api_instance.ip_override(network_id, user_key, ip)
   p result
 rescue AdzerkDecisionSdk::ApiError => e
   puts "Exception when calling UserdbApi->ip_override: #{e}"
@@ -318,7 +318,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **network_id** | **Integer**| Your Network Id | 
- **azk** | **String**| The User&#39;s UserDB Key | 
+ **user_key** | **String**| The User&#39;s UserDB Key | 
  **ip** | **String**| This is the IP to exclude | 
 
 ### Return type
@@ -337,7 +337,7 @@ No authorization required
 
 ## match_user
 
-> match_user(azk, network_id, partner_id, user_id)
+> match_user(network_id, user_key, partner_id, user_id)
 
 
 
@@ -350,13 +350,13 @@ User Matching
 require 'adzerk_decision_sdk'
 
 api_instance = AdzerkDecisionSdk::UserdbApi.new
-azk = 'azk_example' # String | The User's UserDB Key
 network_id = 56 # Integer | Your Network Id
+user_key = 'user_key_example' # String | The User's UserDB Key
 partner_id = 56 # Integer | The ID of the RTB provider in Adzerk. Contact Support if you don't have the ID.
 user_id = 56 # Integer | This is the UserID the individual RTB provider has of the user. This is NOT the UserDB userkey.
 
 begin
-  api_instance.match_user(azk, network_id, partner_id, user_id)
+  api_instance.match_user(network_id, user_key, partner_id, user_id)
 rescue AdzerkDecisionSdk::ApiError => e
   puts "Exception when calling UserdbApi->match_user: #{e}"
 end
@@ -367,8 +367,8 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **azk** | **String**| The User&#39;s UserDB Key | 
  **network_id** | **Integer**| Your Network Id | 
+ **user_key** | **String**| The User&#39;s UserDB Key | 
  **partner_id** | **Integer**| The ID of the RTB provider in Adzerk. Contact Support if you don&#39;t have the ID. | 
  **user_id** | **Integer**| This is the UserID the individual RTB provider has of the user. This is NOT the UserDB userkey. | 
 
@@ -388,7 +388,7 @@ No authorization required
 
 ## opt_out
 
-> opt_out(azk, network_id)
+> opt_out(network_id, user_key)
 
 
 
@@ -401,11 +401,11 @@ Opt-Out a User
 require 'adzerk_decision_sdk'
 
 api_instance = AdzerkDecisionSdk::UserdbApi.new
-azk = 'azk_example' # String | The User's UserDB Key
 network_id = 56 # Integer | Your Network Id
+user_key = 'user_key_example' # String | The User's UserDB Key
 
 begin
-  api_instance.opt_out(azk, network_id)
+  api_instance.opt_out(network_id, user_key)
 rescue AdzerkDecisionSdk::ApiError => e
   puts "Exception when calling UserdbApi->opt_out: #{e}"
 end
@@ -416,8 +416,8 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **azk** | **String**| The User&#39;s UserDB Key | 
  **network_id** | **Integer**| Your Network Id | 
+ **user_key** | **String**| The User&#39;s UserDB Key | 
 
 ### Return type
 
@@ -435,7 +435,7 @@ No authorization required
 
 ## read
 
-> Object read(azk, network_id)
+> Object read(network_id, user_key)
 
 
 
@@ -448,11 +448,11 @@ Read a User's UserDB Record
 require 'adzerk_decision_sdk'
 
 api_instance = AdzerkDecisionSdk::UserdbApi.new
-azk = 'azk_example' # String | The User's UserDB Key
 network_id = 56 # Integer | Your Network Id
+user_key = 'user_key_example' # String | The User's UserDB Key
 
 begin
-  result = api_instance.read(azk, network_id)
+  result = api_instance.read(network_id, user_key)
   p result
 rescue AdzerkDecisionSdk::ApiError => e
   puts "Exception when calling UserdbApi->read: #{e}"
@@ -464,8 +464,8 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **azk** | **String**| The User&#39;s UserDB Key | 
  **network_id** | **Integer**| Your Network Id | 
+ **user_key** | **String**| The User&#39;s UserDB Key | 
 
 ### Return type
 
