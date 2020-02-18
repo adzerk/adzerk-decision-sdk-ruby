@@ -20,7 +20,7 @@ module AdzerkDecisionSdk
       configuration = Configuration.new
       configuration.scheme = protocol
       configuration.host = host
-      configuration.api_key = client_options.api_key
+      configuration.api_key = api_key
 
       api_client = ApiClient.new(configuration)
 

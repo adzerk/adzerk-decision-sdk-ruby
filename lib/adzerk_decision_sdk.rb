@@ -10,7 +10,6 @@ OpenAPI Generator version: 4.2.3
 
 =end
 
-require 'adzerk_decision_sdk/client_options'
 require 'adzerk_decision_sdk/client'
 
 # Common files
