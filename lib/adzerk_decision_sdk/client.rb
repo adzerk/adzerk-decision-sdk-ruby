@@ -8,9 +8,14 @@ module AdzerkDecisionSdk
     attr_reader :decisions
     attr_reader :user_db
 
-    def initialize(client_options)
-      protocol = client_options.protocol || "https"
-      host = client_options.host || "e-#{client_options.network_id}.adzerk.net"
+    def initialize(network_id:,
+                   protocol: 'https',
+                   host: nil,
+                   path: nil,
+                   api_key: nil,
+                   user_agent: 'Adzerk Decision SDK',
+                   logger: nil)
+      host ||= "e-#{network_id}.adzerk.net"
 
       configuration = Configuration.new
       configuration.scheme = protocol
