@@ -14,13 +14,19 @@ module AdzerkDecisionSdk
                    path: nil,
                    api_key: nil,
                    user_agent: 'Adzerk Decision SDK',
-                   logger: nil)
+                   logger: nil,
+                   is_debug: false)
       host ||= "e-#{network_id}.adzerk.net"
 
       configuration = Configuration.new
       configuration.scheme = protocol
       configuration.host = host
-      configuration.api_key = client_options.api_key
+      configuration.api_key['X-Adzerk-ApiKey'] = client_options.api_key
+      configuration.debugging = is_debug
+
+      unless logger.nil?
+        configuration.logger = logger
+      end
 
       api_client = ApiClient.new(configuration)
 
