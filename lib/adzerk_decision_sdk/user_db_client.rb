@@ -7,7 +7,7 @@ module AdzerkDecisionSdk
     end
 
     def add_custom_properties(network_id, user_key, properties)
-      @api.add_custom_properties(user_key, advertiser_id, { body: properties })
+      @api.add_custom_properties(network_id, user_key, { body: properties })
     end
 
     def add_interests(network_id, user_key, interests)
