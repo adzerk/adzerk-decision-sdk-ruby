@@ -24,10 +24,10 @@ module AdzerkDecisionSdk
     # @param user_key [String] The User&#39;s UserDB Key
     # @param [Hash] opts the optional parameters
     # @option opts [Object] :body 
-    # @return [nil]
+    # @return [File]
     def add_custom_properties(network_id, user_key, opts = {})
-      add_custom_properties_with_http_info(network_id, user_key, opts)
-      nil
+      data, _status_code, _headers = add_custom_properties_with_http_info(network_id, user_key, opts)
+      data
     end
 
     # Add Custom Properties to a User
@@ -35,7 +35,7 @@ module AdzerkDecisionSdk
     # @param user_key [String] The User&#39;s UserDB Key
     # @param [Hash] opts the optional parameters
     # @option opts [Object] :body 
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def add_custom_properties_with_http_info(network_id, user_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UserdbApi.add_custom_properties ...'
@@ -57,6 +57,8 @@ module AdzerkDecisionSdk
 
       # header parameters
       header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['image/gif'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -67,7 +69,7 @@ module AdzerkDecisionSdk
       post_body = opts[:body] || @api_client.object_to_http_body(opts[:'body']) 
 
       # return_type
-      return_type = opts[:return_type] 
+      return_type = opts[:return_type] || 'File' 
 
       # auth_names
       auth_names = opts[:auth_names] || ['ApiKeyAuth']
@@ -93,10 +95,10 @@ module AdzerkDecisionSdk
     # @param user_key [String] The User&#39;s UserDB Key
     # @param interest [String] Comma Seperated list of interests
     # @param [Hash] opts the optional parameters
-    # @return [nil]
+    # @return [File]
     def add_interests(network_id, user_key, interest, opts = {})
-      add_interests_with_http_info(network_id, user_key, interest, opts)
-      nil
+      data, _status_code, _headers = add_interests_with_http_info(network_id, user_key, interest, opts)
+      data
     end
 
     # Add Interests to a User
@@ -104,7 +106,7 @@ module AdzerkDecisionSdk
     # @param user_key [String] The User&#39;s UserDB Key
     # @param interest [String] Comma Seperated list of interests
     # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def add_interests_with_http_info(network_id, user_key, interest, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UserdbApi.add_interests ...'
@@ -131,6 +133,8 @@ module AdzerkDecisionSdk
 
       # header parameters
       header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['image/gif'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -139,7 +143,7 @@ module AdzerkDecisionSdk
       post_body = opts[:body] 
 
       # return_type
-      return_type = opts[:return_type] 
+      return_type = opts[:return_type] || 'File' 
 
       # auth_names
       auth_names = opts[:auth_names] || []
@@ -166,10 +170,10 @@ module AdzerkDecisionSdk
     # @param retargeting_segment_id [Integer] The Segment&#39;s ID
     # @param user_key [String] The User&#39;s UserDB Key
     # @param [Hash] opts the optional parameters
-    # @return [nil]
+    # @return [File]
     def add_retargeting_segment(network_id, advertiser_id, retargeting_segment_id, user_key, opts = {})
-      add_retargeting_segment_with_http_info(network_id, advertiser_id, retargeting_segment_id, user_key, opts)
-      nil
+      data, _status_code, _headers = add_retargeting_segment_with_http_info(network_id, advertiser_id, retargeting_segment_id, user_key, opts)
+      data
     end
 
     # Add User to a Retargeting Segment
@@ -178,7 +182,7 @@ module AdzerkDecisionSdk
     # @param retargeting_segment_id [Integer] The Segment&#39;s ID
     # @param user_key [String] The User&#39;s UserDB Key
     # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def add_retargeting_segment_with_http_info(network_id, advertiser_id, retargeting_segment_id, user_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UserdbApi.add_retargeting_segment ...'
@@ -208,6 +212,8 @@ module AdzerkDecisionSdk
 
       # header parameters
       header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['image/gif'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -216,7 +222,7 @@ module AdzerkDecisionSdk
       post_body = opts[:body] 
 
       # return_type
-      return_type = opts[:return_type] 
+      return_type = opts[:return_type] || 'File' 
 
       # auth_names
       auth_names = opts[:auth_names] || []
@@ -306,17 +312,17 @@ module AdzerkDecisionSdk
     # @param network_id [Integer] Your Network Id
     # @param [Hash] opts the optional parameters
     # @option opts [GdprConsent] :gdpr_consent 
-    # @return [nil]
+    # @return [File]
     def gdpr_consent(network_id, opts = {})
-      gdpr_consent_with_http_info(network_id, opts)
-      nil
+      data, _status_code, _headers = gdpr_consent_with_http_info(network_id, opts)
+      data
     end
 
     # GDPR Consent
     # @param network_id [Integer] Your Network Id
     # @param [Hash] opts the optional parameters
     # @option opts [GdprConsent] :gdpr_consent 
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def gdpr_consent_with_http_info(network_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UserdbApi.gdpr_consent ...'
@@ -333,6 +339,8 @@ module AdzerkDecisionSdk
 
       # header parameters
       header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['image/gif'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -343,7 +351,7 @@ module AdzerkDecisionSdk
       post_body = opts[:body] || @api_client.object_to_http_body(opts[:'gdpr_consent']) 
 
       # return_type
-      return_type = opts[:return_type] 
+      return_type = opts[:return_type] || 'File' 
 
       # auth_names
       auth_names = opts[:auth_names] || ['ApiKeyAuth']
@@ -369,7 +377,7 @@ module AdzerkDecisionSdk
     # @param user_key [String] The User&#39;s UserDB Key
     # @param ip [String] This is the IP to exclude
     # @param [Hash] opts the optional parameters
-    # @return [Object]
+    # @return [File]
     def ip_override(network_id, user_key, ip, opts = {})
       data, _status_code, _headers = ip_override_with_http_info(network_id, user_key, ip, opts)
       data
@@ -380,7 +388,7 @@ module AdzerkDecisionSdk
     # @param user_key [String] The User&#39;s UserDB Key
     # @param ip [String] This is the IP to exclude
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def ip_override_with_http_info(network_id, user_key, ip, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UserdbApi.ip_override ...'
@@ -408,7 +416,7 @@ module AdzerkDecisionSdk
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['image/gif'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -417,7 +425,7 @@ module AdzerkDecisionSdk
       post_body = opts[:body] 
 
       # return_type
-      return_type = opts[:return_type] || 'Object' 
+      return_type = opts[:return_type] || 'File' 
 
       # auth_names
       auth_names = opts[:auth_names] || []
@@ -444,10 +452,10 @@ module AdzerkDecisionSdk
     # @param partner_id [Integer] The ID of the RTB provider in Adzerk. Contact Support if you don&#39;t have the ID.
     # @param user_id [Integer] This is the UserID the individual RTB provider has of the user. This is NOT the UserDB userkey.
     # @param [Hash] opts the optional parameters
-    # @return [nil]
+    # @return [File]
     def match_user(network_id, user_key, partner_id, user_id, opts = {})
-      match_user_with_http_info(network_id, user_key, partner_id, user_id, opts)
-      nil
+      data, _status_code, _headers = match_user_with_http_info(network_id, user_key, partner_id, user_id, opts)
+      data
     end
 
     # User Matching
@@ -456,7 +464,7 @@ module AdzerkDecisionSdk
     # @param partner_id [Integer] The ID of the RTB provider in Adzerk. Contact Support if you don&#39;t have the ID.
     # @param user_id [Integer] This is the UserID the individual RTB provider has of the user. This is NOT the UserDB userkey.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def match_user_with_http_info(network_id, user_key, partner_id, user_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UserdbApi.match_user ...'
@@ -488,6 +496,8 @@ module AdzerkDecisionSdk
 
       # header parameters
       header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['image/gif'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -496,7 +506,7 @@ module AdzerkDecisionSdk
       post_body = opts[:body] 
 
       # return_type
-      return_type = opts[:return_type] 
+      return_type = opts[:return_type] || 'File' 
 
       # auth_names
       auth_names = opts[:auth_names] || []
@@ -521,17 +531,17 @@ module AdzerkDecisionSdk
     # @param network_id [Integer] Your Network Id
     # @param user_key [String] The User&#39;s UserDB Key
     # @param [Hash] opts the optional parameters
-    # @return [nil]
+    # @return [File]
     def opt_out(network_id, user_key, opts = {})
-      opt_out_with_http_info(network_id, user_key, opts)
-      nil
+      data, _status_code, _headers = opt_out_with_http_info(network_id, user_key, opts)
+      data
     end
 
     # Opt-Out a User
     # @param network_id [Integer] Your Network Id
     # @param user_key [String] The User&#39;s UserDB Key
     # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def opt_out_with_http_info(network_id, user_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UserdbApi.opt_out ...'
@@ -553,6 +563,8 @@ module AdzerkDecisionSdk
 
       # header parameters
       header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['image/gif'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -561,7 +573,7 @@ module AdzerkDecisionSdk
       post_body = opts[:body] 
 
       # return_type
-      return_type = opts[:return_type] 
+      return_type = opts[:return_type] || 'File' 
 
       # auth_names
       auth_names = opts[:auth_names] || []
@@ -653,17 +665,17 @@ module AdzerkDecisionSdk
     # @param network_id [Integer] Your Network Id
     # @param user_key [String] UserDB Id for the user
     # @param [Hash] opts the optional parameters
-    # @return [nil]
+    # @return [File]
     def set_user_cookie(network_id, user_key, opts = {})
-      set_user_cookie_with_http_info(network_id, user_key, opts)
-      nil
+      data, _status_code, _headers = set_user_cookie_with_http_info(network_id, user_key, opts)
+      data
     end
 
     # Set User Cookie
     # @param network_id [Integer] Your Network Id
     # @param user_key [String] UserDB Id for the user
     # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def set_user_cookie_with_http_info(network_id, user_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UserdbApi.set_user_cookie ...'
@@ -685,6 +697,8 @@ module AdzerkDecisionSdk
 
       # header parameters
       header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['image/gif'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -693,7 +707,7 @@ module AdzerkDecisionSdk
       post_body = opts[:body] 
 
       # return_type
-      return_type = opts[:return_type] 
+      return_type = opts[:return_type] || 'File' 
 
       # auth_names
       auth_names = opts[:auth_names] || []

@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 ## add_custom_properties
 
-> add_custom_properties(network_id, user_key, opts)
+> File add_custom_properties(network_id, user_key, opts)
 
 
 
@@ -46,7 +46,8 @@ opts = {
 }
 
 begin
-  api_instance.add_custom_properties(network_id, user_key, opts)
+  result = api_instance.add_custom_properties(network_id, user_key, opts)
+  p result
 rescue AdzerkDecisionSdk::ApiError => e
   puts "Exception when calling UserdbApi->add_custom_properties: #{e}"
 end
@@ -63,7 +64,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-nil (empty response body)
+**File**
 
 ### Authorization
 
@@ -72,12 +73,12 @@ nil (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: image/gif
 
 
 ## add_interests
 
-> add_interests(network_id, user_key, interest)
+> File add_interests(network_id, user_key, interest)
 
 
 
@@ -95,7 +96,8 @@ user_key = 'user_key_example' # String | The User's UserDB Key
 interest = 'interest_example' # String | Comma Seperated list of interests
 
 begin
-  api_instance.add_interests(network_id, user_key, interest)
+  result = api_instance.add_interests(network_id, user_key, interest)
+  p result
 rescue AdzerkDecisionSdk::ApiError => e
   puts "Exception when calling UserdbApi->add_interests: #{e}"
 end
@@ -112,7 +114,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-nil (empty response body)
+**File**
 
 ### Authorization
 
@@ -121,12 +123,12 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: image/gif
 
 
 ## add_retargeting_segment
 
-> add_retargeting_segment(network_id, advertiser_id, retargeting_segment_id, user_key)
+> File add_retargeting_segment(network_id, advertiser_id, retargeting_segment_id, user_key)
 
 
 
@@ -145,7 +147,8 @@ retargeting_segment_id = 56 # Integer | The Segment's ID
 user_key = 'user_key_example' # String | The User's UserDB Key
 
 begin
-  api_instance.add_retargeting_segment(network_id, advertiser_id, retargeting_segment_id, user_key)
+  result = api_instance.add_retargeting_segment(network_id, advertiser_id, retargeting_segment_id, user_key)
+  p result
 rescue AdzerkDecisionSdk::ApiError => e
   puts "Exception when calling UserdbApi->add_retargeting_segment: #{e}"
 end
@@ -163,7 +166,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-nil (empty response body)
+**File**
 
 ### Authorization
 
@@ -172,7 +175,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: image/gif
 
 
 ## forget
@@ -231,7 +234,7 @@ nil (empty response body)
 
 ## gdpr_consent
 
-> gdpr_consent(network_id, opts)
+> File gdpr_consent(network_id, opts)
 
 
 
@@ -257,7 +260,8 @@ opts = {
 }
 
 begin
-  api_instance.gdpr_consent(network_id, opts)
+  result = api_instance.gdpr_consent(network_id, opts)
+  p result
 rescue AdzerkDecisionSdk::ApiError => e
   puts "Exception when calling UserdbApi->gdpr_consent: #{e}"
 end
@@ -273,7 +277,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-nil (empty response body)
+**File**
 
 ### Authorization
 
@@ -282,12 +286,12 @@ nil (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: image/gif
 
 
 ## ip_override
 
-> Object ip_override(network_id, user_key, ip)
+> File ip_override(network_id, user_key, ip)
 
 
 
@@ -323,7 +327,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**File**
 
 ### Authorization
 
@@ -332,12 +336,12 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: image/gif
 
 
 ## match_user
 
-> match_user(network_id, user_key, partner_id, user_id)
+> File match_user(network_id, user_key, partner_id, user_id)
 
 
 
@@ -356,7 +360,8 @@ partner_id = 56 # Integer | The ID of the RTB provider in Adzerk. Contact Suppor
 user_id = 56 # Integer | This is the UserID the individual RTB provider has of the user. This is NOT the UserDB userkey.
 
 begin
-  api_instance.match_user(network_id, user_key, partner_id, user_id)
+  result = api_instance.match_user(network_id, user_key, partner_id, user_id)
+  p result
 rescue AdzerkDecisionSdk::ApiError => e
   puts "Exception when calling UserdbApi->match_user: #{e}"
 end
@@ -374,7 +379,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-nil (empty response body)
+**File**
 
 ### Authorization
 
@@ -383,12 +388,12 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: image/gif
 
 
 ## opt_out
 
-> opt_out(network_id, user_key)
+> File opt_out(network_id, user_key)
 
 
 
@@ -405,7 +410,8 @@ network_id = 56 # Integer | Your Network Id
 user_key = 'user_key_example' # String | The User's UserDB Key
 
 begin
-  api_instance.opt_out(network_id, user_key)
+  result = api_instance.opt_out(network_id, user_key)
+  p result
 rescue AdzerkDecisionSdk::ApiError => e
   puts "Exception when calling UserdbApi->opt_out: #{e}"
 end
@@ -421,7 +427,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-nil (empty response body)
+**File**
 
 ### Authorization
 
@@ -430,7 +436,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: image/gif
 
 
 ## read
@@ -483,7 +489,7 @@ No authorization required
 
 ## set_user_cookie
 
-> set_user_cookie(network_id, user_key)
+> File set_user_cookie(network_id, user_key)
 
 
 
@@ -500,7 +506,8 @@ network_id = 56 # Integer | Your Network Id
 user_key = 'user_key_example' # String | UserDB Id for the user
 
 begin
-  api_instance.set_user_cookie(network_id, user_key)
+  result = api_instance.set_user_cookie(network_id, user_key)
+  p result
 rescue AdzerkDecisionSdk::ApiError => e
   puts "Exception when calling UserdbApi->set_user_cookie: #{e}"
 end
@@ -516,7 +523,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-nil (empty response body)
+**File**
 
 ### Authorization
 
@@ -525,5 +532,5 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: image/gif
 
