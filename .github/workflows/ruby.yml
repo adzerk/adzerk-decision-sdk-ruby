@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  "configure gems":
+  configure-gems:
     runs-on: ubuntu-latest
     steps:
     - name: Configure ~/.gemrc
