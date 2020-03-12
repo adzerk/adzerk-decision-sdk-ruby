@@ -7,23 +7,6 @@ on:
     branches: [ master ]
 
 jobs:
-  configure-gems:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Configure ~/.gemrc
-      run: gem source -a https://github:${{ secrets.ARTIFACTORY_PASSWORD }}@adzerkps.jfrog.io/artifactory/api/gems/gems/
-    - name: Configure ~/.gem/credentials
-      run: curl -ugithub:${{ secrets.ARTIFACTORY_PASSWORD }} https://adzerkps.jfrog.io/artifactory/api/gems/gems/api/v1/api_key.yaml > ~/.gem/credentials
-    - name: Upload ~/.gemrc
-      uses: actions/upload-artifact@v1
-      with:
-        name: gemrc
-        path: ~/.gemrc`
-    - name: Upload .gem folder
-      uses: actions/upload-artifact@v1
-      with:
-        name: gemfolder
-        path: ~/.gem
   build:
     runs-on: ubuntu-latest
     steps:
@@ -37,3 +20,22 @@ jobs:
         gem install bundler
         bundle install --jobs 4 --retry 3
         bundle exec rake
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Ruby 2.6
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.6.x
+    - name: Update Version
+      run: sed -i -r "s/VERSION = '[0-9.]+'\$/VERSION = '${GITHUB_REF##*/}'/g" lib/adzerk_decision_sdk/version.rb
+    - name: Publish to Artifactory
+      run: |
+        mkdir -p $HOME/.gem
+        touch $HOME/.gem/credentials
+        chmod 0600 $HOME/.gem/credentials
+        curl -ugithub:${{ secrets.ARTIFACTORY_PASSWORD }} https://adzerkps.jfrog.io/artifactory/api/gems/gems/api/v1/api_key.yaml > ~/.gem/credentials
+        rake build
+        gem push --host https://adzerkps.jfrog.io/artifactory/api/gems/gems pkg/*.gem
