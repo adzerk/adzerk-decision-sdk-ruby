@@ -7,10 +7,25 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
-
+  "configure gems":
     runs-on: ubuntu-latest
-
+    steps:
+    - name: Configure ~/.gemrc
+      run: gem source -a https://github:${{ secrets.ARTIFACTORY_PASSWORD }}@adzerkps.jfrog.io/artifactory/api/gems/gems/
+    - name: Configure ~/.gem/credentials
+      run: curl -ugithub:${{ secrets.ARTIFACTORY_PASSWORD }} https://adzerkps.jfrog.io/artifactory/api/gems/gems/api/v1/api_key.yaml > ~/.gem/credentials
+    - name: Upload ~/.gemrc
+      uses: actions/upload-artifact@v1
+      with:
+        name: gemrc
+        path: ~/.gemrc`
+    - name: Upload .gem folder
+      uses: actions/upload-artifact@v1
+      with:
+        name: gemfolder
+        path: ~/.gem
+  build:
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Set up Ruby 2.6
