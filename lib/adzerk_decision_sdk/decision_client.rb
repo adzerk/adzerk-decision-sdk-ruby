@@ -9,8 +9,8 @@ module AdzerkDecisionSdk
     def get(opts = {})
       response = @api.get_decisions(opts)
 
-      response.keys.each do |k|
-        response[k] = response[k].is_a?(Array) ?  response[k] : [response[k]]
+      response.decisions.keys.each do |k|
+        response.decisions[k] = response.decisions[k].is_a?(Array) ?  response.decisions[k] : [response.decisions[k]]
       end
 
       response
@@ -23,8 +23,8 @@ module AdzerkDecisionSdk
 
       response = @api.get_decisions(opts)
 
-      response.keys.each do |k|
-        response[k] = response[k].is_a?(Array) ?  response[k] : [response[k]]
+      response.decisions.keys.each do |k|
+        response.decisions[k] = response.decisions[k].is_a?(Array) ?  response.decisions[k] : [response.decisions[k]]
       end
 
       response
