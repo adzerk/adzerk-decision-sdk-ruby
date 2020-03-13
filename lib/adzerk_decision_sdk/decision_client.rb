@@ -7,7 +7,7 @@ module AdzerkDecisionSdk
     end
 
     def get(request, opts = {})
-      opts[:body] ||= request.respond_to? 'to_hash' ? request.to_hash() : request
+      opts[:body] ||= request.respond_to?('to_hash') ? request.to_hash() : request
       response = @api.get_decisions(opts)
 
       response.decisions.keys.each do |k|
@@ -21,7 +21,7 @@ module AdzerkDecisionSdk
       header_params = opts[:header_params] || {}
       header_params["X-Adzerk-Explain"] = api_key
       opts[:header_params] = header_params
-      opts[:body] ||= request.respond_to? 'to_hash' ? request.to_hash() : request
+      opts[:body] ||= request.respond_to?('to_hash') ? request.to_hash() : request
 
       response = @api.get_decisions(opts)
 
