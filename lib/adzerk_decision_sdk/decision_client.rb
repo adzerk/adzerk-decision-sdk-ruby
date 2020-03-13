@@ -24,7 +24,7 @@ module AdzerkDecisionSdk
       DecisionClient.parse_response(response)
     end
 
-    private_class_method def self.parse_response(response) do
+    private_class_method def self.parse_response(response)
       response.decisions.keys.each do |k|
         response.decisions[k] = response.decisions[k].is_a?(Array) ?  response.decisions[k] : [response.decisions[k]]
         response.decisions[k].each_with_index do |d, i|
