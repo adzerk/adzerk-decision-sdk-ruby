@@ -7,7 +7,13 @@ module AdzerkDecisionSdk
     end
 
     def get(opts = {})
-      @api.get_decisions(opts)
+      response = @api.get_decisions(opts)
+
+      response.keys.each do |k|
+        response[k] = response[k].is_a?(Array) ?  response[k] : [response[k]]
+      end
+
+      response
     end
 
     def get_with_explanation(opts = {}, api_key)
@@ -15,7 +21,13 @@ module AdzerkDecisionSdk
       header_params["X-Adzerk-Explain"] = api_key
       opts[:header_params] = header_params
 
-      @api.get_decisions(opts)
+      response = @api.get_decisions(opts)
+
+      response.keys.each do |k|
+        response[k] = response[k].is_a?(Array) ?  response[k] : [response[k]]
+      end
+
+      response
     end
   end
 end
