@@ -10,7 +10,7 @@ module AdzerkDecisionSdk
       opts[:body] ||= request.respond_to?('to_hash') ? request.to_hash() : request
       response = @api.get_decisions(opts)
 
-      AdzerkDecisionSdk::DecisionClient.parse_response(response)
+      parse_response(response)
     end
 
     def get_with_explanation(request, opts = {}, api_key)
@@ -21,10 +21,12 @@ module AdzerkDecisionSdk
 
       response = @api.get_decisions(opts)
 
-      AdzerkDecisionSdk::DecisionClient.parse_response(response)
+      parse_response(response)
     end
 
-    private_class_method def self.parse_response(response)
+    private
+
+    def parse_response(response)
       response.decisions.keys.each do |k|
         response.decisions[k] = response.decisions[k].is_a?(Array) ?  response.decisions[k] : [response.decisions[k]]
         response.decisions[k].each_with_index do |d, i|
