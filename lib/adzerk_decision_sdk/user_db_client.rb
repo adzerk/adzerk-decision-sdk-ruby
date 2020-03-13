@@ -23,7 +23,8 @@ module AdzerkDecisionSdk
     end
 
     def gdpr_consent(network_id, gdpr_consent)
-      @api.gdpr_consent(network_id, { body: gdpr_consent })
+      body = gdpr_consent.respond_to?('to_hash') ? gdpr_consent.to_hash() : gdpr_consent
+      @api.gdpr_consent(network_id, { body: body })
     end
 
     def ip_override(network_id, user_key, ip)
