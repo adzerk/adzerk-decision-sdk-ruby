@@ -10,9 +10,8 @@ module AdzerkDecisionSdk
       @api.add_custom_properties(network_id, user_key, { body: properties })
     end
 
-    def add_interests(network_id, user_key, interests)
-      interests_csv = interests.join(",")
-      @api.add_interests(network_id, user_key, interests_csv)
+    def add_interest(network_id, user_key, interest)
+      @api.add_interests(network_id, user_key, interest)
     end
 
     def add_retargeting_segment(network_id, user_key, advertiser_id, retargeting_segment_id)

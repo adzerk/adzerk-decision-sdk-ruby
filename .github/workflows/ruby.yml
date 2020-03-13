@@ -8,9 +8,7 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Set up Ruby 2.6
@@ -22,3 +20,22 @@ jobs:
         gem install bundler
         bundle install --jobs 4 --retry 3
         bundle exec rake
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Ruby 2.6
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.6.x
+    - name: Update Version
+      run: sed -i -r "s/VERSION = '[0-9.]+'\$/VERSION = '0.0.1.${GITHUB_REF##*/}'/g" lib/adzerk_decision_sdk/version.rb
+    - name: Publish to Artifactory
+      run: |
+        mkdir -p $HOME/.gem
+        touch $HOME/.gem/credentials
+        chmod 0600 $HOME/.gem/credentials
+        curl -ugithub:${{ secrets.ARTIFACTORY_PASSWORD }} https://adzerkps.jfrog.io/artifactory/api/gems/gems/api/v1/api_key.yaml > ~/.gem/credentials
+        rake build
+        gem push --host https://adzerkps.jfrog.io/artifactory/api/gems/gems pkg/*.gem
