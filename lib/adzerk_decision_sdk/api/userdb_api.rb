@@ -311,7 +311,7 @@ module AdzerkDecisionSdk
     # GDPR Consent
     # @param network_id [Integer] Your Network Id
     # @param [Hash] opts the optional parameters
-    # @option opts [GdprConsent] :gdpr_consent 
+    # @option opts [ConsentRequest] :consent_request 
     # @return [File]
     def gdpr_consent(network_id, opts = {})
       data, _status_code, _headers = gdpr_consent_with_http_info(network_id, opts)
@@ -321,7 +321,7 @@ module AdzerkDecisionSdk
     # GDPR Consent
     # @param network_id [Integer] Your Network Id
     # @param [Hash] opts the optional parameters
-    # @option opts [GdprConsent] :gdpr_consent 
+    # @option opts [ConsentRequest] :consent_request 
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def gdpr_consent_with_http_info(network_id, opts = {})
       if @api_client.config.debugging
@@ -348,7 +348,7 @@ module AdzerkDecisionSdk
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:body] || @api_client.object_to_http_body(opts[:'gdpr_consent']) 
+      post_body = opts[:body] || @api_client.object_to_http_body(opts[:'consent_request']) 
 
       # return_type
       return_type = opts[:return_type] || 'File' 

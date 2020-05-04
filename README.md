@@ -58,7 +58,7 @@ require 'adzerk_decision_sdk'
 
 api_instance = AdzerkDecisionSdk::DecisionApi.new
 opts = {
-  body: {"placements": [{ "divName": "header", "networkId": 23, "siteId": 667480, "adTypes": [5] }] } # Object | 
+  decision_request: {"placements": [{ "divName": "header", "networkId": 23, "siteId": 667480, "adTypes": [5] }] } # DecisionRequest | 
 }
 
 begin
@@ -91,17 +91,15 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
- - [AdzerkDecisionSdk::Consent](docs/Consent.md)
+ - [AdzerkDecisionSdk::ConsentRequest](docs/ConsentRequest.md)
  - [AdzerkDecisionSdk::Content](docs/Content.md)
  - [AdzerkDecisionSdk::Decision](docs/Decision.md)
  - [AdzerkDecisionSdk::DecisionData](docs/DecisionData.md)
+ - [AdzerkDecisionSdk::DecisionRequest](docs/DecisionRequest.md)
+ - [AdzerkDecisionSdk::DecisionResponse](docs/DecisionResponse.md)
  - [AdzerkDecisionSdk::Event](docs/Event.md)
- - [AdzerkDecisionSdk::GdprConsent](docs/GdprConsent.md)
  - [AdzerkDecisionSdk::Placement](docs/Placement.md)
  - [AdzerkDecisionSdk::PricingData](docs/PricingData.md)
- - [AdzerkDecisionSdk::Request](docs/Request.md)
- - [AdzerkDecisionSdk::RequestConsent](docs/RequestConsent.md)
- - [AdzerkDecisionSdk::Response](docs/Response.md)
  - [AdzerkDecisionSdk::User](docs/User.md)
 
 

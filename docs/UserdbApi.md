@@ -256,7 +256,7 @@ end
 api_instance = AdzerkDecisionSdk::UserdbApi.new
 network_id = 56 # Integer | Your Network Id
 opts = {
-  gdpr_consent: AdzerkDecisionSdk::GdprConsent.new # GdprConsent | 
+  consent_request: AdzerkDecisionSdk::ConsentRequest.new # ConsentRequest | 
 }
 
 begin
@@ -273,7 +273,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **network_id** | **Integer**| Your Network Id | 
- **gdpr_consent** | [**GdprConsent**](GdprConsent.md)|  | [optional] 
+ **consent_request** | [**ConsentRequest**](ConsentRequest.md)|  | [optional] 
 
 ### Return type
 
