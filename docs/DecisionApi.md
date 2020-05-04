@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## get_decisions
 
-> Response get_decisions(opts)
+> DecisionResponse get_decisions(opts)
 
 
 
@@ -24,7 +24,7 @@ require 'adzerk_decision_sdk'
 
 api_instance = AdzerkDecisionSdk::DecisionApi.new
 opts = {
-  body: {"placements": [{ "divName": "header", "networkId": 23, "siteId": 667480, "adTypes": [5] }] } # Object | 
+  decision_request: {"placements": [{ "divName": "header", "networkId": 23, "siteId": 667480, "adTypes": [5] }] } # DecisionRequest | 
 }
 
 begin
@@ -40,11 +40,11 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **Object**|  | [optional] 
+ **decision_request** | [**DecisionRequest**](DecisionRequest.md)|  | [optional] 
 
 ### Return type
 
-[**Response**](Response.md)
+[**DecisionResponse**](DecisionResponse.md)
 
 ### Authorization
 

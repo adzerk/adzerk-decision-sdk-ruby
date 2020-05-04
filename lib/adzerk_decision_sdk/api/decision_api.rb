@@ -21,8 +21,8 @@ module AdzerkDecisionSdk
     end
     # Request Decision(s)
     # @param [Hash] opts the optional parameters
-    # @option opts [Object] :body 
-    # @return [Response]
+    # @option opts [DecisionRequest] :decision_request 
+    # @return [DecisionResponse]
     def get_decisions(opts = {})
       data, _status_code, _headers = get_decisions_with_http_info(opts)
       data
@@ -30,8 +30,8 @@ module AdzerkDecisionSdk
 
     # Request Decision(s)
     # @param [Hash] opts the optional parameters
-    # @option opts [Object] :body 
-    # @return [Array<(Response, Integer, Hash)>] Response data, response status code and response headers
+    # @option opts [DecisionRequest] :decision_request 
+    # @return [Array<(DecisionResponse, Integer, Hash)>] DecisionResponse data, response status code and response headers
     def get_decisions_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DecisionApi.get_decisions ...'
@@ -53,10 +53,10 @@ module AdzerkDecisionSdk
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:body] || @api_client.object_to_http_body(opts[:'body']) 
+      post_body = opts[:body] || @api_client.object_to_http_body(opts[:'decision_request']) 
 
       # return_type
-      return_type = opts[:return_type] || 'Response' 
+      return_type = opts[:return_type] || 'DecisionResponse' 
 
       # auth_names
       auth_names = opts[:auth_names] || []
