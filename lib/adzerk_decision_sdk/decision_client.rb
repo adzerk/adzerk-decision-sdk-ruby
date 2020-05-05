@@ -2,22 +2,25 @@ require 'adzerk_decision_sdk/api/decision_api'
 
 module AdzerkDecisionSdk
   class DecisionClient
-    def initialize(api_client)
+    def initialize(network_id, site_id, api_client)
+      @network_id = network_id
+      @site_id = site_id
       @api = DecisionApi.new(api_client)
     end
 
     def get(request, opts = {})
-      opts[:body] ||= request.respond_to?('to_hash') ? request.to_hash() : request
-      response = @api.get_decisions(opts)
-
-      parse_response(response)
-    end
-
-    def get_with_explanation(request, opts = {}, api_key)
       header_params = opts[:header_params] || {}
-      header_params["X-Adzerk-Explain"] = api_key
-      opts[:header_params] = header_params
       opts[:body] ||= request.respond_to?('to_hash') ? request.to_hash() : request
+
+      opts[:body][:placements].each_with_index do |placement, idx|
+        placement[:networkId] = @network_id if not placement.has_key?(:networkId)
+        placement[:siteId] = @site_id if not placement.has_key?(:siteId)
+        placement[:divName] = "div#{idx}" if not placement.has_key?(:divName)
+        end
+      end
+
+      header_params['user-agent'] = opts[:user_agent] if opts.has_key?(:user_agent)
+      header_params['X-Adzerk-Explain'] = opts[:api_key] if opts.has_key?(:include_explanation)
 
       response = @api.get_decisions(opts)
 
