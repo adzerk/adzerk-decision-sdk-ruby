@@ -15,7 +15,8 @@ module AdzerkDecisionSdk
                    api_key: nil,
                    user_agent: 'Adzerk Decision SDK',
                    logger: nil,
-                   is_debug: false)
+                   is_debug: false,
+                   site_id: nil)
       host ||= "e-#{network_id}.adzerk.net"
 
       configuration = Configuration.new
@@ -29,9 +30,10 @@ module AdzerkDecisionSdk
       end
 
       api_client = ApiClient.new(configuration)
+      api_client.default_headers['X-Adzerk-Sdk-Version'] = 'adzerk-decision-sdk-ruby:v1'
 
-      @decisions = DecisionClient.new(api_client)
-      @user_db = UserDbClient.new(api_client)
+      @decisions = DecisionClient.new(network_id, site_id, api_client)
+      @user_db = UserDbClient.new(network_id, api_client)
     end
   end
 end
