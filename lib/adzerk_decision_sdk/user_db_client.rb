@@ -2,45 +2,46 @@ require 'adzerk_decision_sdk/api/userdb_api'
 
 module AdzerkDecisionSdk
   class UserDbClient
-    def initialize(api_client)
+    def initialize(network_id, api_client)
+      @network_id = network_id
       @api = UserdbApi.new(api_client)
     end
 
-    def add_custom_properties(network_id, user_key, properties)
-      @api.add_custom_properties(network_id, user_key, { body: properties })
+    def add_custom_properties(user_key, properties, network_id: nil)
+      @api.add_custom_properties(network_id || @network_id, user_key, { body: properties })
     end
 
-    def add_interest(network_id, user_key, interest)
-      @api.add_interests(network_id, user_key, interest)
+    def add_interest(user_key, interest, network_id: nil)
+      @api.add_interests(network_id || @network_id, user_key, interest)
     end
 
-    def add_retargeting_segment(network_id, user_key, advertiser_id, retargeting_segment_id)
-      @api.add_retargeting_segment(network_id, advertiser_id, retargeting_segment_id, user_key)
+    def add_retargeting_segment(user_key, advertiser_id, retargeting_segment_id, network_id: nil)
+      @api.add_retargeting_segment(network_id || @network_id, advertiser_id, retargeting_segment_id, user_key)
     end
 
-    def forget(network_id, user_key)
-      @api.forget(network_id, user_key)
+    def forget(user_key, network_id: nil)
+      @api.forget(network_id || @network_id, user_key)
     end
 
-    def gdpr_consent(network_id, gdpr_consent)
+    def gdpr_consent(gdpr_consent, network_id: nil)
       body = gdpr_consent.respond_to?('to_hash') ? gdpr_consent.to_hash() : gdpr_consent
-      @api.gdpr_consent(network_id, { body: body })
+      @api.gdpr_consent(network_id || @network_id, { body: body })
     end
 
-    def ip_override(network_id, user_key, ip)
-      @api.ip_override(network_id, user_key, ip)
+    def ip_override(user_key, ip, network_id: nil)
+      @api.ip_override(network_id || @network_id, user_key, ip)
     end
 
-    def match_user(network_id, user_key, partner_id, user_id)
-      @api.match_user(network_id, user_key, partner_id, user_id)
+    def match_user(user_key, partner_id, user_id, network_id: nil)
+      @api.match_user(network_id || @network_id, user_key, partner_id, user_id)
     end
 
-    def opt_out(network_id, user_key)
-      @api.opt_out(network_id, user_key)
+    def opt_out(user_key, network_id: nil)
+      @api.opt_out(network_id || @network_id, user_key)
     end
 
-    def read(network_id, user_key)
-      @api.read(network_id, user_key)
+    def read(user_key, network_id: nil)
+      @api.read(network_id || @network_id, user_key)
     end
   end
 end
