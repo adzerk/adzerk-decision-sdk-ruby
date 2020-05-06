@@ -41,7 +41,25 @@ module AdzerkDecisionSdk
     end
 
     def read(user_key, network_id: nil)
-      @api.read(network_id || @network_id, user_key)
+      bad_keys = [
+        'cookieMonster',
+        'dirtyCookies',
+        'isNew',
+        'adViewTimes',
+        'advertiserViewTimes',
+        'flightViewTimes',
+        'siteViewTimes',
+        'campaignViewTimes',
+        'pendingConversions',
+        'campaignConversions'
+      ]
+
+      user_record = @api.read(network_id || @network_id, user_key)
+      user_record.delete_if do |key, _|
+        bad_keys.include?(key)
+      end
+
+      user_record
     end
   end
 end
