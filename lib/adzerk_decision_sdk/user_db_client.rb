@@ -42,16 +42,16 @@ module AdzerkDecisionSdk
 
     def read(user_key, network_id: nil)
       bad_keys = [
-        'cookieMonster',
-        'dirtyCookies',
-        'isNew',
-        'adViewTimes',
-        'advertiserViewTimes',
-        'flightViewTimes',
-        'siteViewTimes',
-        'campaignViewTimes',
-        'pendingConversions',
-        'campaignConversions'
+        :cookieMonster,
+        :dirtyCookies,
+        :isNew,
+        :adViewTimes,
+        :advertiserViewTimes,
+        :flightViewTimes,
+        :siteViewTimes,
+        :campaignViewTimes,
+        :pendingConversions,
+        :campaignConversion'
       ]
 
       user_record = @api.read(network_id || @network_id, user_key)
