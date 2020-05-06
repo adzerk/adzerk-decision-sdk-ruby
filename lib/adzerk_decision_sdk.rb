@@ -19,17 +19,15 @@ require 'adzerk_decision_sdk/version'
 require 'adzerk_decision_sdk/configuration'
 
 # Models
-require 'adzerk_decision_sdk/models/consent'
+require 'adzerk_decision_sdk/models/consent_request'
 require 'adzerk_decision_sdk/models/content'
 require 'adzerk_decision_sdk/models/decision'
 require 'adzerk_decision_sdk/models/decision_data'
 require 'adzerk_decision_sdk/models/event'
-require 'adzerk_decision_sdk/models/gdpr_consent'
 require 'adzerk_decision_sdk/models/placement'
 require 'adzerk_decision_sdk/models/pricing_data'
-require 'adzerk_decision_sdk/models/request'
-require 'adzerk_decision_sdk/models/request_consent'
-require 'adzerk_decision_sdk/models/response'
+require 'adzerk_decision_sdk/models/decision_request'
+require 'adzerk_decision_sdk/models/decision_response'
 require 'adzerk_decision_sdk/models/user'
 
 # APIs
