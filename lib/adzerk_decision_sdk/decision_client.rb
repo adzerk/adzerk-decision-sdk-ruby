@@ -16,7 +16,6 @@ module AdzerkDecisionSdk
         placement[:networkId] = @network_id if not placement.has_key?(:networkId)
         placement[:siteId] = @site_id if not placement.has_key?(:siteId)
         placement[:divName] = "div#{idx}" if not placement.has_key?(:divName)
-        end
       end
 
       header_params['user-agent'] = opts[:user_agent] if opts.has_key?(:user_agent)
