@@ -2,11 +2,13 @@ require 'adzerk_decision_sdk/configuration'
 require 'adzerk_decision_sdk/api_client'
 require 'adzerk_decision_sdk/decision_client'
 require 'adzerk_decision_sdk/user_db_client'
+require 'adzerk_decision_sdk/pixel_client'
 
 module AdzerkDecisionSdk
   class Client
     attr_reader :decisions
     attr_reader :user_db
+    attr_reader :pixels
 
     def initialize(network_id:,
                    protocol: 'https',
@@ -34,6 +36,7 @@ module AdzerkDecisionSdk
 
       @decisions = DecisionClient.new(network_id, site_id, api_client)
       @user_db = UserDbClient.new(network_id, api_client)
+      @pixels = PixelClient.new(api_client)
     end
   end
 end
