@@ -11,6 +11,8 @@ OpenAPI Generator version: 4.2.3
 =end
 
 require 'adzerk_decision_sdk/client'
+require 'adzerk_decision_sdk/event_type'
+require 'adzerk_decision_sdk/rate_type'
 
 # Common files
 require 'adzerk_decision_sdk/api_client'
