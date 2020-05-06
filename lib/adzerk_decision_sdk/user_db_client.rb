@@ -7,7 +7,7 @@ module AdzerkDecisionSdk
       @api = UserdbApi.new(api_client)
     end
 
-    def add_custom_properties(user_key, properties, network_id: nil)
+    def set_custom_properties(user_key, properties, network_id: nil)
       @api.add_custom_properties(network_id || @network_id, user_key, { body: properties })
     end
 
