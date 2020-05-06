@@ -55,11 +55,10 @@ module AdzerkDecisionSdk
       ]
 
       user_record = @api.read(network_id || @network_id, user_key)
+
       user_record.delete_if do |key, _|
         bad_keys.include?(key)
       end
-
-      user_record
     end
   end
 end
