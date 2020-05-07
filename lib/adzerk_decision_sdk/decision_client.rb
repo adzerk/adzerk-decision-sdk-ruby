@@ -12,6 +12,10 @@ module AdzerkDecisionSdk
       header_params = opts[:header_params] || {}
       opts[:body] ||= request.respond_to?('to_hash') ? request.to_hash() : request
 
+      if opts[:body][:placements].length() == 0
+        fail ArgumentError, "At least one placement is required for a Decision Request"
+      end
+
       opts[:body][:placements].each_with_index do |placement, idx|
         placement[:networkId] = @network_id if not placement.has_key?(:networkId)
         placement[:siteId] = @site_id if not placement.has_key?(:siteId)
