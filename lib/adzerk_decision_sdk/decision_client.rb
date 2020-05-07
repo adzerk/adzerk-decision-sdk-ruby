@@ -9,6 +9,7 @@ module AdzerkDecisionSdk
     end
 
     def get(request, opts = {})
+      opts ||= {}
       header_params = opts[:header_params] || {}
       opts[:body] ||= request.respond_to?('to_hash') ? request.to_hash() : request
 
@@ -23,7 +24,8 @@ module AdzerkDecisionSdk
       end
 
       header_params['user-agent'] = opts[:user_agent] if opts.has_key?(:user_agent)
-      header_params['X-Adzerk-Explain'] = opts[:api_key] if opts.has_key?(:include_explanation)
+      header_params['X-Adzerk-Explain'] = opts[:api_key] if opts.has_key?(:include_explanation) and opts[:include_explanation] == true
+      opts[:header_params] = header_params
 
       response = @api.get_decisions(opts)
 
