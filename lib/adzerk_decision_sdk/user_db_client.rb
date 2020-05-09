@@ -51,7 +51,7 @@ module AdzerkDecisionSdk
         :siteViewTimes,
         :campaignViewTimes,
         :pendingConversions,
-        :campaignConversion
+        :campaignConversions
       ]
 
       user_record = @api.read(network_id || @network_id, user_key)
