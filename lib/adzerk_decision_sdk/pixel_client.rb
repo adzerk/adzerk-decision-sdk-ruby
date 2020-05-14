@@ -18,7 +18,7 @@ module AdzerkDecisionSdk
       request = @api_client.build_request(:GET, '')
       request.base_url = new_url
       response = request.run()
-      location = response.response_code == 301 ? reasponse.headers['Location'] : nil
+      location = response.response_code == 302 ? reasponse.headers['location'] : nil
 
       [response.response_code, location]
     end
