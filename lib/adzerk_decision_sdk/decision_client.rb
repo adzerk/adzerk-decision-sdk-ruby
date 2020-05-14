@@ -23,7 +23,7 @@ module AdzerkDecisionSdk
         placement[:divName] = "div#{idx}" if not placement.has_key?(:divName)
       end
 
-      header_params['user-agent'] = opts[:user_agent] if opts.has_key?(:user_agent)
+      header_params['User-Agent'] = opts[:user_agent] if opts.has_key?(:user_agent)
       header_params['X-Adzerk-Explain'] = opts[:api_key] if opts.has_key?(:include_explanation) and opts[:include_explanation] == true
       opts[:header_params] = header_params
 
