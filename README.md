@@ -1,6 +1,6 @@
-# Adzerk Decision Ruby SDK
+# Adzerk Ruby Decision SDK
 
-Ruby SDK for Adzerk Decision & UserDB APIs
+Ruby Software Development Kit for Adzerk Decision & UserDB APIs
 
 ## Installation
 
@@ -35,7 +35,7 @@ require "adzerk_decision_sdk"
 client = AdzerkDecisionSdk::Client.new(network_id: 23, site_id: 667480)
 
 request = {
-  placements: [{adTypes: [5]}],
+  placements: [{ adTypes: [5] }],
   user: { key: "abc" },
   keywords: ["keyword1", "keyword2"],
 }
@@ -58,11 +58,8 @@ pp client.user_db.read("abc")
 ```ruby
 require "adzerk_decision_sdk"
 
-# Requires setting API key in "$ADZERK_API_KEY" environ variable
-API_KEY = ENV["ADZERK_API_KEY"]
-
 # Demo network ID; find your own via the Adzerk UI!
-client = AdzerkDecisionSdk::Client.new(network_id: 23, api_key: API_KEY)
+client = AdzerkDecisionSdk::Client.new(network_id: 23, api_key: "YOUR_API_KEY")
 
 props = {
   favoriteColor: "blue",
