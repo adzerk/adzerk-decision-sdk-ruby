@@ -18,15 +18,64 @@ gem 'adzerk_decision_sdk', '~> 1.0.0'
 
 ## Examples
 
-(getting API credentials)
+### API Credentials & Required IDs
 
-(ad request)
+- Network ID: Log into [Adzerk UI](https://app.adzerk.com/) & use the "circle-i" help menu in upper right corner to find Network ID. Required for all SDK operations.
+- Site ID: Go to [Manage Sites page](https://app.adzerk.com/#!/sites/) to find site IDs. Required when fetching an ad decision.
+- Ad Type ID: Go to [Ad Sizes page](https://app.adzerk.com/#!/ad-sizes/) to find Ad Type IDs. Required when fetching an ad decision.
+- API Key: Go to [API Keys page](https://app.adzerk.com/#!/api-keys/) find active API keys. Required when writing to UserDB.
+- User Key: UserDB IDs are [specified or generated for each user](https://dev.adzerk.com/reference/userdb#passing-the-userkey).
 
-(userDB read)
+### Fetching an Ad Decision
 
-(userDB set properties)
+```ruby
+require "adzerk_decision_sdk"
 
-(logging)
+# Demo network, site, and ad type IDs; find your own via the Adzerk UI!
+client = AdzerkDecisionSdk::Client.new(network_id: 23, site_id: 667480)
+
+request = {
+  placements: [{adTypes: [5]}],
+  user: { key: "abc" },
+  keywords: ["keyword1", "keyword2"],
+}
+
+pp client.decisions.get(request)
+```
+
+### UserDB: Reading User Record
+
+```ruby
+require "adzerk_decision_sdk"
+
+# Demo network ID; find your own via the Adzerk UI!
+client = AdzerkDecisionSdk::Client.new(network_id: 23)
+pp client.user_db.read("abc")
+```
+
+### UserDB: Setting Custom Properties
+
+```ruby
+require "adzerk_decision_sdk"
+
+# Requires setting API key in "$ADZERK_API_KEY" environ variable
+API_KEY = ENV["ADZERK_API_KEY"]
+
+# Demo network ID; find your own via the Adzerk UI!
+client = AdzerkDecisionSdk::Client.new(network_id: 23, api_key: API_KEY)
+
+props = {
+  favoriteColor: "blue",
+  favoriteNumber: 42,
+  favoriteFoods: ["strawberries", "chocolate"],
+}
+
+client.user_db.set_custom_properties("abc", props)
+```
+
+<!-- ### Logging Example
+
+TBD: ....... -->
 
 ## Documentation
 
@@ -37,10 +86,15 @@ gem 'adzerk_decision_sdk', '~> 1.0.0'
 
 ### Reporting Issues
 
-(push towards opening issues with github)
+- For bug fixes and improvements to this SDK please use Github to [open an issue](https://github.com/adzerk/adzerk-decision-sdk-js/issues) or send us a [pull request](https://github.com/adzerk/adzerk-decision-sdk-js/pulls).
+- For questions or issues regarding Adzerk functionality, please [contact Adzerk support](https://adzerk.com/help/).
 
 ### Building
 
+To install dependencies and run the builds associated with this SDK, please use:
+
 ```
+bundler install
+rake spec
 gem build adzerk_decision_sdk.gemspec
 ```
