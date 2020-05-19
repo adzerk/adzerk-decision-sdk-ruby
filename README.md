@@ -10,7 +10,7 @@ Requires [Ruby 2.5](https://en.wikipedia.org/wiki/Ruby_(programming_language)#Ta
 gem install adzerk_decision_sdk
 ```
 
-Or add to your Gemfile:
+Or add to your `Gemfile`:
 
 ```ruby
 gem 'adzerk_decision_sdk', '~> 1.0.0'
