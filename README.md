@@ -86,7 +86,7 @@ TBD: ....... -->
 
 ### Reporting Issues
 
-- For bug fixes and improvements to this SDK please use Github to [open an issue](https://github.com/adzerk/adzerk-decision-sdk-js/issues) or send us a [pull request](https://github.com/adzerk/adzerk-decision-sdk-js/pulls).
+- For bug fixes and improvements to this SDK please use Github to [open an issue](https://github.com/adzerk/adzerk-decision-sdk-ruby/issues) or send us a [pull request](https://github.com/adzerk/adzerk-decision-sdk-ruby/pulls).
 - For questions or issues regarding Adzerk functionality, please [contact Adzerk support](https://adzerk.com/help/).
 
 ### Building
