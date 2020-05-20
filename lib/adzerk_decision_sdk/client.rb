@@ -19,6 +19,7 @@ module AdzerkDecisionSdk
                    logger: nil,
                    is_debug: false,
                    site_id: nil)
+      version = Gem.loaded_specs['adzerk-decision-sdk'].version.version
       host ||= "e-#{network_id}.adzerk.net"
 
       configuration = Configuration.new
@@ -32,7 +33,7 @@ module AdzerkDecisionSdk
       end
 
       api_client = ApiClient.new(configuration)
-      api_client.default_headers['X-Adzerk-Sdk-Version'] = 'adzerk-decision-sdk-ruby:v1'
+      api_client.default_headers['X-Adzerk-Sdk-Version'] = "adzerk-decision-sdk-ruby:#{version}"
 
       @decisions = DecisionClient.new(network_id, site_id, api_client)
       @user_db = UserDbClient.new(network_id, api_client)
