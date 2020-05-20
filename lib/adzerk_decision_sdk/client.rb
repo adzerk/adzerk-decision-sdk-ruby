@@ -19,7 +19,7 @@ module AdzerkDecisionSdk
                    logger: nil,
                    is_debug: false,
                    site_id: nil)
-      version = Gem.loaded_specs['adzerk-decision-sdk'].version.version
+      version = Gem.loaded_specs['adzerk_decision_sdk'].version.to_s
       host ||= "e-#{network_id}.adzerk.net"
 
       configuration = Configuration.new
