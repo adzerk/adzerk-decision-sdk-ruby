@@ -2,7 +2,7 @@ require 'adzerk_decision_sdk/api/decision_api'
 
 module AdzerkDecisionSdk
   class DecisionClient
-    def initialize(network_id, site_id, api_client)
+    def initialize(network_id, site_id, api_client, logger)
       @network_id = network_id
       @site_id = site_id
       @api = DecisionApi.new(api_client)
@@ -15,8 +15,12 @@ module AdzerkDecisionSdk
 
       opts[:body][:enableBotFiltering] = false if not opts[:body].has_key?(:enableBotFiltering)
 
+      if !opts[:body].has_key?(:placements) or !opts[:body][:placements] or !opts[:body][:placements].length() == 0
+        fail ArgumentError, "Each request requires at least one placement"
+      end
+
       opts[:body][:placements].each_with_index do |placement, idx|
-        if placement[:adTypes].length() == 0
+        if !placement.has_key?(:adTypes) or !placements[:adTypes] or placement[:adTypes].length() == 0
           fail ArgumentError, "Each placement needs at least one ad type"
         end
         placement[:networkId] = @network_id if not placement.has_key?(:networkId)
