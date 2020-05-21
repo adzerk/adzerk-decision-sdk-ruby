@@ -6,6 +6,7 @@ module AdzerkDecisionSdk
       @network_id = network_id
       @site_id = site_id
       @api = DecisionApi.new(api_client)
+      @logger = logger
     end
 
     def get(request, opts = {})
@@ -29,7 +30,18 @@ module AdzerkDecisionSdk
       end
 
       header_params['User-Agent'] = opts[:user_agent] if opts.has_key?(:user_agent)
-      header_params['X-Adzerk-Explain'] = opts[:api_key] if opts.has_key?(:include_explanation) and opts[:include_explanation] == true
+
+      if opts.has_key?(:include_explanation) and opts[:include_explanation] == true
+        header_params['X-Adzerk-Explain'] = opts[:api_key]
+        @logger.info("--------------------------------------------------------------")
+        @logger.info("              !!! WARNING - WARNING - WARNING !!!             ")
+        @logger.info("")
+        @logger.info("You have opted to include explainer details with this request!")
+        @logger.info("This will cause performance degradation and should not be done")
+        @logger.info("in production environments.")
+        @logger.info("--------------------------------------------------------------")
+      end
+
       opts[:header_params] = header_params
 
       response = @api.get_decisions(opts)
