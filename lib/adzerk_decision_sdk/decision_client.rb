@@ -13,6 +13,8 @@ module AdzerkDecisionSdk
       header_params = opts[:header_params] || {}
       opts[:body] ||= request.respond_to?('to_hash') ? request.to_hash() : request
 
+      opts[:body][:enableBotFiltering] = false if not opts[:body].has_key?(:enableBotFiltering)
+
       opts[:body][:placements].each_with_index do |placement, idx|
         if placement[:adTypes].length() == 0
           fail ArgumentError, "Each placement needs at least one ad type"
