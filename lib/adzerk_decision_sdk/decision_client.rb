@@ -14,6 +14,8 @@ module AdzerkDecisionSdk
       header_params = opts[:header_params] || {}
       opts[:body] ||= request.respond_to?('to_hash') ? request.to_hash() : request
 
+      @logger.info("Processing request: #{opts[:body]}")
+
       opts[:body][:enableBotFiltering] = false if not opts[:body].has_key?(:enableBotFiltering)
 
       if !opts[:body].has_key?(:placements) or !opts[:body][:placements] or !opts[:body][:placements].length() == 0
@@ -43,6 +45,9 @@ module AdzerkDecisionSdk
       end
 
       opts[:header_params] = header_params
+
+      @logger.info("Processed request: #{opts[:body]}")
+      @logger.info("Requesting with headers: #{opts[:header_params]}")
 
       response = @api.get_decisions(opts)
 
