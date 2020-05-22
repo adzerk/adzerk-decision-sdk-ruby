@@ -23,7 +23,7 @@ module AdzerkDecisionSdk
       end
 
       opts[:body][:placements].each_with_index do |placement, idx|
-        if !placement.has_key?(:adTypes) or !placements[:adTypes] or placement[:adTypes].length() == 0
+        if !placement.has_key?(:adTypes) or !placement[:adTypes] or placement[:adTypes].length() == 0
           fail ArgumentError, "Each placement needs at least one ad type"
         end
         placement[:networkId] = @network_id if not placement.has_key?(:networkId)
