@@ -18,7 +18,7 @@ module AdzerkDecisionSdk
 
       opts[:body][:enableBotFiltering] = false if not opts[:body].has_key?(:enableBotFiltering)
 
-      if !opts[:body].has_key?(:placements) or !opts[:body][:placements] or !opts[:body][:placements].length() == 0
+      if !opts[:body].has_key?(:placements) or !opts[:body][:placements] or opts[:body][:placements].length() == 0
         fail ArgumentError, "Each request requires at least one placement"
       end
 
