@@ -26,7 +26,7 @@ jobs:
       with:
         ruby-version: 2.6.x
     - name: Update Version
-      run: sed -i -r "s/VERSION = '[0-9.]+'\$/VERSION = '0.0.1.${GITHUB_REF##*/}'/g" lib/adzerk_decision_sdk/version.rb
+      run: sed -i -r "s/VERSION = '[0-9a-z.]+'\$/VERSION = '0.0.1.${GITHUB_REF##*/}'/g" lib/adzerk_decision_sdk/version.rb
     - name: Publish to Artifactory
       run: |
         mkdir -p $HOME/.gem
