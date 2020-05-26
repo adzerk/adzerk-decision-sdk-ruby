@@ -35,13 +35,13 @@ module AdzerkDecisionSdk
 
       if opts.has_key?(:include_explanation) and opts[:include_explanation] == true
         header_params['X-Adzerk-Explain'] = opts[:api_key]
-        @logger.info("--------------------------------------------------------------")
-        @logger.info("              !!! WARNING - WARNING - WARNING !!!             ")
-        @logger.info("")
-        @logger.info("You have opted to include explainer details with this request!")
-        @logger.info("This will cause performance degradation and should not be done")
-        @logger.info("in production environments.")
-        @logger.info("--------------------------------------------------------------")
+        @logger.warn("--------------------------------------------------------------")
+        @logger.warn("              !!! WARNING - WARNING - WARNING !!!             ")
+        @logger.warn("")
+        @logger.warn("You have opted to include explainer details with this request!")
+        @logger.warn("This will cause performance degradation and should not be done")
+        @logger.warn("in production environments.")
+        @logger.warn("--------------------------------------------------------------")
       end
 
       opts[:header_params] = header_params
