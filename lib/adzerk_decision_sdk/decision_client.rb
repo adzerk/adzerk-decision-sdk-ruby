@@ -52,7 +52,7 @@ module AdzerkDecisionSdk
       response = @api.get_decisions(opts)
 
       parsed_response = parse_response(response)
-      @logger.info("Recieved response: #{parsed_response}")
+      @logger.info("Received response: #{parsed_response}")
 
       return parsed_response
     end
