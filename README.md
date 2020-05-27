@@ -6,6 +6,8 @@ Ruby Software Development Kit for Adzerk Decision & UserDB APIs
 
 Requires [Ruby 2.5](https://en.wikipedia.org/wiki/Ruby_(programming_language)#Table_of_versions) or higher.
 
+[RubyGem Package](https://rubygems.org/gems/adzerk_decision_sdk)
+
 ```shell
 gem install adzerk_decision_sdk
 ```
@@ -13,7 +15,7 @@ gem install adzerk_decision_sdk
 Or add to your `Gemfile`:
 
 ```ruby
-gem 'adzerk_decision_sdk', '~> 1.0.0'
+gem 'adzerk_decision_sdk', '~> 1.0.0-pre.beta.2'
 ```
 
 ## Examples
