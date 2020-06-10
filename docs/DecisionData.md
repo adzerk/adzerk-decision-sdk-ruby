@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **image_url** | **String** |  | [optional] 
+**file_name** | **String** |  | [optional] 
 **title** | **String** |  | [optional] 
 **width** | **Integer** |  | [optional] 
 **height** | **Integer** |  | [optional] 
@@ -16,6 +17,7 @@ Name | Type | Description | Notes
 require 'AdzerkDecisionSdk'
 
 instance = AdzerkDecisionSdk::DecisionData.new(image_url: null,
+                                 file_name: null,
                                  title: null,
                                  width: null,
                                  height: null,
