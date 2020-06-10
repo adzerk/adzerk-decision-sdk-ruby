@@ -24,3 +24,4 @@
 
 lib/adzerk_decision_sdk.rb
 spec/**
+README.md
