@@ -23,5 +23,6 @@
 #!docs/README.md
 
 lib/adzerk_decision_sdk.rb
+lib/adzerk_decision_sdk/version.rb
 spec/**
 README.md
