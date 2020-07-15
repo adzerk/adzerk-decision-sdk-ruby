@@ -13,7 +13,6 @@ Method | HTTP request | Description
 [**match_user**](UserdbApi.md#match_user) | **GET** /udb/{networkId}/sync/i.gif | 
 [**opt_out**](UserdbApi.md#opt_out) | **GET** /udb/{networkId}/optout/i.gif | 
 [**read**](UserdbApi.md#read) | **GET** /udb/{networkId}/read | 
-[**set_user_cookie**](UserdbApi.md#set_user_cookie) | **GET** /udb/{networkId}/set/i.gif | 
 
 
 
@@ -485,52 +484,4 @@ No authorization required
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
-
-## set_user_cookie
-
-> File set_user_cookie(network_id, user_key)
-
-
-
-Set User Cookie
-
-### Example
-
-```ruby
-# load the gem
-require 'adzerk_decision_sdk'
-
-api_instance = AdzerkDecisionSdk::UserdbApi.new
-network_id = 56 # Integer | Your Network Id
-user_key = 'user_key_example' # String | UserDB Id for the user
-
-begin
-  result = api_instance.set_user_cookie(network_id, user_key)
-  p result
-rescue AdzerkDecisionSdk::ApiError => e
-  puts "Exception when calling UserdbApi->set_user_cookie: #{e}"
-end
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **network_id** | **Integer**| Your Network Id | 
- **user_key** | **String**| UserDB Id for the user | 
-
-### Return type
-
-**File**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: image/gif
 
