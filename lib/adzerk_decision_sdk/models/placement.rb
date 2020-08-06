@@ -62,6 +62,8 @@ module AdzerkDecisionSdk
     # (BETA) The name of the eCPM Partition that should be used to source eCPM data for auctions
     attr_accessor :ecpm_partition
 
+    attr_accessor :event_multiplier
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -80,7 +82,8 @@ module AdzerkDecisionSdk
         :'content_keys' => :'contentKeys',
         :'count' => :'count',
         :'proportionality' => :'proportionality',
-        :'ecpm_partition' => :'ecpmPartition'
+        :'ecpm_partition' => :'ecpmPartition',
+        :'event_multiplier' => :'eventMultiplier'
       }
     end
 
@@ -102,7 +105,8 @@ module AdzerkDecisionSdk
         :'content_keys' => :'Hash<String, Integer>',
         :'count' => :'Integer',
         :'proportionality' => :'Boolean',
-        :'ecpm_partition' => :'String'
+        :'ecpm_partition' => :'String',
+        :'event_multiplier' => :'Integer'
       }
     end
 
@@ -120,7 +124,8 @@ module AdzerkDecisionSdk
         :'content_keys',
         :'count',
         :'proportionality',
-        :'ecpm_partition'
+        :'ecpm_partition',
+        :'event_multiplier'
       ])
     end
 
@@ -210,19 +215,47 @@ module AdzerkDecisionSdk
       if attributes.key?(:'ecpm_partition')
         self.ecpm_partition = attributes[:'ecpm_partition']
       end
+
+      if attributes.key?(:'event_multiplier')
+        self.event_multiplier = attributes[:'event_multiplier']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if !@event_multiplier.nil? && @event_multiplier > 100000000
+        invalid_properties.push('invalid value for "event_multiplier", must be smaller than or equal to 100000000.')
+      end
+
+      if !@event_multiplier.nil? && @event_multiplier < -100000000
+        invalid_properties.push('invalid value for "event_multiplier", must be greater than or equal to -100000000.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if !@event_multiplier.nil? && @event_multiplier > 100000000
+      return false if !@event_multiplier.nil? && @event_multiplier < -100000000
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] event_multiplier Value to be assigned
+    def event_multiplier=(event_multiplier)
+      if !event_multiplier.nil? && event_multiplier > 100000000
+        fail ArgumentError, 'invalid value for "event_multiplier", must be smaller than or equal to 100000000.'
+      end
+
+      if !event_multiplier.nil? && event_multiplier < -100000000
+        fail ArgumentError, 'invalid value for "event_multiplier", must be greater than or equal to -100000000.'
+      end
+
+      @event_multiplier = event_multiplier
     end
 
     # Checks equality by comparing each attribute.
@@ -245,7 +278,8 @@ module AdzerkDecisionSdk
           content_keys == o.content_keys &&
           count == o.count &&
           proportionality == o.proportionality &&
-          ecpm_partition == o.ecpm_partition
+          ecpm_partition == o.ecpm_partition &&
+          event_multiplier == o.event_multiplier
     end
 
     # @see the `==` method
@@ -257,7 +291,7 @@ module AdzerkDecisionSdk
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [div_name, network_id, site_id, ad_types, zone_ids, campaign_id, flight_id, ad_id, click_url, properties, event_ids, overrides, content_keys, count, proportionality, ecpm_partition].hash
+      [div_name, network_id, site_id, ad_types, zone_ids, campaign_id, flight_id, ad_id, click_url, properties, event_ids, overrides, content_keys, count, proportionality, ecpm_partition, event_multiplier].hash
     end
 
     # Builds the object from hash

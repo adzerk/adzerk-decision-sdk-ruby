@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **count** | **Integer** | (BETA) The number of ads to return per placement. Integer between 1 and 20 | [optional] 
 **proportionality** | **Boolean** | (BETA) If true, fills ads in a multi-winner placement in proportion to the flight&#39;s goals | [optional] 
 **ecpm_partition** | **String** | (BETA) The name of the eCPM Partition that should be used to source eCPM data for auctions | [optional] 
+**event_multiplier** | **Integer** |  | [optional] 
 
 ## Code Sample
 
@@ -41,7 +42,8 @@ instance = AdzerkDecisionSdk::Placement.new(div_name: null,
                                  content_keys: null,
                                  count: null,
                                  proportionality: null,
-                                 ecpm_partition: null)
+                                 ecpm_partition: null,
+                                 event_multiplier: null)
 ```
 
 
