@@ -8,13 +8,14 @@ module AdzerkDecisionSdk
       @logger = logger
     end
 
-    def fire(url, revenue_override: nil, additional_revenue: nil)
+    def fire(url, revenue_override: nil, additional_revenue: nil, event_multiplier: nil)
       uri = URI(url)
       @logger.info("Firing Pixel at base url of: #{uri.to_s}")
 
       query_params = URI.decode_www_form(uri.query)
       query_params << ["override", revenue_override] if not revenue_override.nil?
       query_params << ["additional", additional_revenue] if not additional_revenue.nil?
+      query_params << ["eventMultiplier", event_multiplier] if not event_multiplier.nil?
       uri.query = URI.encode_www_form(query_params)
       new_url = uri.to_s()
 
