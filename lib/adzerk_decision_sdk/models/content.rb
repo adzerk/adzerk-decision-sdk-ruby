@@ -41,7 +41,7 @@ module AdzerkDecisionSdk
         :'type' => :'String',
         :'template' => :'String',
         :'custom_template' => :'String',
-        :'data' => :'DecisionData',
+        :'data' => :'Object',
         :'body' => :'String'
       }
     end

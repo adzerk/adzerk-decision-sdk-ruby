@@ -13,40 +13,24 @@ OpenAPI Generator version: 4.3.1
 require 'date'
 
 module AdzerkDecisionSdk
-  class DecisionData
-    attr_accessor :image_url
+  class MatchedPoint
+    attr_accessor :lat
 
-    attr_accessor :file_name
-
-    attr_accessor :title
-
-    attr_accessor :width
-
-    attr_accessor :height
-
-    attr_accessor :custom_data
+    attr_accessor :long
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'image_url' => :'imageUrl',
-        :'file_name' => :'fileName',
-        :'title' => :'title',
-        :'width' => :'width',
-        :'height' => :'height',
-        :'custom_data' => :'customData'
+        :'lat' => :'lat',
+        :'long' => :'long'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'image_url' => :'String',
-        :'file_name' => :'String',
-        :'title' => :'String',
-        :'width' => :'Integer',
-        :'height' => :'Integer',
-        :'custom_data' => :'Object'
+        :'lat' => :'String',
+        :'long' => :'String'
       }
     end
 
@@ -60,39 +44,23 @@ module AdzerkDecisionSdk
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `AdzerkDecisionSdk::DecisionData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `AdzerkDecisionSdk::MatchedPoint` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `AdzerkDecisionSdk::DecisionData`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `AdzerkDecisionSdk::MatchedPoint`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'image_url')
-        self.image_url = attributes[:'image_url']
+      if attributes.key?(:'lat')
+        self.lat = attributes[:'lat']
       end
 
-      if attributes.key?(:'file_name')
-        self.file_name = attributes[:'file_name']
-      end
-
-      if attributes.key?(:'title')
-        self.title = attributes[:'title']
-      end
-
-      if attributes.key?(:'width')
-        self.width = attributes[:'width']
-      end
-
-      if attributes.key?(:'height')
-        self.height = attributes[:'height']
-      end
-
-      if attributes.key?(:'custom_data')
-        self.custom_data = attributes[:'custom_data']
+      if attributes.key?(:'long')
+        self.long = attributes[:'long']
       end
     end
 
@@ -114,12 +82,8 @@ module AdzerkDecisionSdk
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          image_url == o.image_url &&
-          file_name == o.file_name &&
-          title == o.title &&
-          width == o.width &&
-          height == o.height &&
-          custom_data == o.custom_data
+          lat == o.lat &&
+          long == o.long
     end
 
     # @see the `==` method
@@ -131,7 +95,7 @@ module AdzerkDecisionSdk
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [image_url, file_name, title, width, height, custom_data].hash
+      [lat, long].hash
     end
 
     # Builds the object from hash

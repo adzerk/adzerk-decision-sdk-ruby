@@ -13,32 +13,24 @@ OpenAPI Generator version: 4.3.1
 require 'date'
 
 module AdzerkDecisionSdk
-  class DecisionResponse
-    attr_accessor :user
+  class RequestLocation
+    attr_accessor :latitude
 
-    attr_accessor :decisions
-
-    attr_accessor :explain
-
-    attr_accessor :matched_points
+    attr_accessor :longitude
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'user' => :'user',
-        :'decisions' => :'decisions',
-        :'explain' => :'explain',
-        :'matched_points' => :'matchedPoints'
+        :'latitude' => :'latitude',
+        :'longitude' => :'longitude'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'user' => :'User',
-        :'decisions' => :'Object',
-        :'explain' => :'Object',
-        :'matched_points' => :'Array<MatchedPoint>'
+        :'latitude' => :'String',
+        :'longitude' => :'String'
       }
     end
 
@@ -52,33 +44,23 @@ module AdzerkDecisionSdk
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `AdzerkDecisionSdk::DecisionResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `AdzerkDecisionSdk::RequestLocation` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `AdzerkDecisionSdk::DecisionResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `AdzerkDecisionSdk::RequestLocation`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'user')
-        self.user = attributes[:'user']
+      if attributes.key?(:'latitude')
+        self.latitude = attributes[:'latitude']
       end
 
-      if attributes.key?(:'decisions')
-        self.decisions = attributes[:'decisions']
-      end
-
-      if attributes.key?(:'explain')
-        self.explain = attributes[:'explain']
-      end
-
-      if attributes.key?(:'matched_points')
-        if (value = attributes[:'matched_points']).is_a?(Array)
-          self.matched_points = value
-        end
+      if attributes.key?(:'longitude')
+        self.longitude = attributes[:'longitude']
       end
     end
 
@@ -100,10 +82,8 @@ module AdzerkDecisionSdk
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          user == o.user &&
-          decisions == o.decisions &&
-          explain == o.explain &&
-          matched_points == o.matched_points
+          latitude == o.latitude &&
+          longitude == o.longitude
     end
 
     # @see the `==` method
@@ -115,7 +95,7 @@ module AdzerkDecisionSdk
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [user, decisions, explain, matched_points].hash
+      [latitude, longitude].hash
     end
 
     # Builds the object from hash

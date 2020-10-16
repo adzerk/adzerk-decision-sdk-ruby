@@ -55,6 +55,16 @@ module AdzerkDecisionSdk
     # RTB requests only - sets an Identifier for Advertisers (IFA or IDFA)
     attr_accessor :device_id
 
+    attr_accessor :parallel
+
+    attr_accessor :intended_latitude
+
+    attr_accessor :intended_longitude
+
+    attr_accessor :include_matched_points
+
+    attr_accessor :location
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -71,7 +81,12 @@ module AdzerkDecisionSdk
         :'enable_bot_filtering' => :'enableBotFiltering',
         :'enable_user_dbip' => :'enableUserDBIP',
         :'consent' => :'consent',
-        :'device_id' => :'deviceID'
+        :'device_id' => :'deviceID',
+        :'parallel' => :'parallel',
+        :'intended_latitude' => :'intendedLatitude',
+        :'intended_longitude' => :'intendedLongitude',
+        :'include_matched_points' => :'includeMatchedPoints',
+        :'location' => :'location'
       }
     end
 
@@ -91,7 +106,12 @@ module AdzerkDecisionSdk
         :'enable_bot_filtering' => :'Boolean',
         :'enable_user_dbip' => :'Boolean',
         :'consent' => :'Object',
-        :'device_id' => :'String'
+        :'device_id' => :'String',
+        :'parallel' => :'Boolean',
+        :'intended_latitude' => :'String',
+        :'intended_longitude' => :'String',
+        :'include_matched_points' => :'Boolean',
+        :'location' => :'RequestLocation'
       }
     end
 
@@ -109,7 +129,11 @@ module AdzerkDecisionSdk
         :'enable_bot_filtering',
         :'enable_user_dbip',
         :'consent',
-        :'device_id'
+        :'device_id',
+        :'parallel',
+        :'intended_latitude',
+        :'intended_longitude',
+        :'include_matched_points',
       ])
     end
 
@@ -189,6 +213,26 @@ module AdzerkDecisionSdk
       if attributes.key?(:'device_id')
         self.device_id = attributes[:'device_id']
       end
+
+      if attributes.key?(:'parallel')
+        self.parallel = attributes[:'parallel']
+      end
+
+      if attributes.key?(:'intended_latitude')
+        self.intended_latitude = attributes[:'intended_latitude']
+      end
+
+      if attributes.key?(:'intended_longitude')
+        self.intended_longitude = attributes[:'intended_longitude']
+      end
+
+      if attributes.key?(:'include_matched_points')
+        self.include_matched_points = attributes[:'include_matched_points']
+      end
+
+      if attributes.key?(:'location')
+        self.location = attributes[:'location']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -227,7 +271,12 @@ module AdzerkDecisionSdk
           enable_bot_filtering == o.enable_bot_filtering &&
           enable_user_dbip == o.enable_user_dbip &&
           consent == o.consent &&
-          device_id == o.device_id
+          device_id == o.device_id &&
+          parallel == o.parallel &&
+          intended_latitude == o.intended_latitude &&
+          intended_longitude == o.intended_longitude &&
+          include_matched_points == o.include_matched_points &&
+          location == o.location
     end
 
     # @see the `==` method
@@ -239,7 +288,7 @@ module AdzerkDecisionSdk
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [placements, user, keywords, url, referrer, ip, blocked_creatives, is_mobile, include_pricing_data, notrack, enable_bot_filtering, enable_user_dbip, consent, device_id].hash
+      [placements, user, keywords, url, referrer, ip, blocked_creatives, is_mobile, include_pricing_data, notrack, enable_bot_filtering, enable_user_dbip, consent, device_id, parallel, intended_latitude, intended_longitude, include_matched_points, location].hash
     end
 
     # Builds the object from hash
