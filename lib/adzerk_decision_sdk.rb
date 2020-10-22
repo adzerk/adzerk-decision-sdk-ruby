@@ -30,6 +30,7 @@ require 'adzerk_decision_sdk/models/pricing_data'
 require 'adzerk_decision_sdk/models/decision_request'
 require 'adzerk_decision_sdk/models/decision_response'
 require 'adzerk_decision_sdk/models/user'
+require 'adzerk_decision_adk/models/matched_point'
 
 # APIs
 require 'adzerk_decision_sdk/api/decision_api'
