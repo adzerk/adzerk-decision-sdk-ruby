@@ -22,7 +22,6 @@ Name | Type | Description | Notes
 **intended_latitude** | **String** |  | [optional] 
 **intended_longitude** | **String** |  | [optional] 
 **include_matched_points** | **Boolean** |  | [optional] 
-**location** | [**RequestLocation**](RequestLocation.md) |  | [optional] 
 
 ## Code Sample
 
@@ -46,8 +45,7 @@ instance = AdzerkDecisionSdk::DecisionRequest.new(placements: null,
                                  parallel: null,
                                  intended_latitude: null,
                                  intended_longitude: null,
-                                 include_matched_points: null,
-                                 location: null)
+                                 include_matched_points: null)
 ```
 
 

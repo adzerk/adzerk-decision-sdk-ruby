@@ -20,15 +20,12 @@ module AdzerkDecisionSdk
 
     attr_accessor :explain
 
-    attr_accessor :matched_points
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'user' => :'user',
         :'decisions' => :'decisions',
-        :'explain' => :'explain',
-        :'matched_points' => :'matchedPoints'
+        :'explain' => :'explain'
       }
     end
 
@@ -37,8 +34,7 @@ module AdzerkDecisionSdk
       {
         :'user' => :'User',
         :'decisions' => :'Object',
-        :'explain' => :'Object',
-        :'matched_points' => :'Array<MatchedPoint>'
+        :'explain' => :'Object'
       }
     end
 
@@ -74,12 +70,6 @@ module AdzerkDecisionSdk
       if attributes.key?(:'explain')
         self.explain = attributes[:'explain']
       end
-
-      if attributes.key?(:'matched_points')
-        if (value = attributes[:'matched_points']).is_a?(Array)
-          self.matched_points = value
-        end
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -102,8 +92,7 @@ module AdzerkDecisionSdk
       self.class == o.class &&
           user == o.user &&
           decisions == o.decisions &&
-          explain == o.explain &&
-          matched_points == o.matched_points
+          explain == o.explain
     end
 
     # @see the `==` method
@@ -115,7 +104,7 @@ module AdzerkDecisionSdk
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [user, decisions, explain, matched_points].hash
+      [user, decisions, explain].hash
     end
 
     # Builds the object from hash

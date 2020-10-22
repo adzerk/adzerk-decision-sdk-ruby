@@ -32,6 +32,8 @@ module AdzerkDecisionSdk
 
     attr_accessor :events
 
+    attr_accessor :matched_points
+
     attr_accessor :pricing
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -46,6 +48,7 @@ module AdzerkDecisionSdk
         :'contents' => :'contents',
         :'impression_url' => :'impressionUrl',
         :'events' => :'events',
+        :'matched_points' => :'matchedPoints',
         :'pricing' => :'pricing'
       }
     end
@@ -62,6 +65,7 @@ module AdzerkDecisionSdk
         :'contents' => :'Array<Content>',
         :'impression_url' => :'String',
         :'events' => :'Array<Event>',
+        :'matched_points' => :'Array<MatchedPoint>',
         :'pricing' => :'PricingData'
       }
     end
@@ -127,6 +131,12 @@ module AdzerkDecisionSdk
         end
       end
 
+      if attributes.key?(:'matched_points')
+        if (value = attributes[:'matched_points']).is_a?(Array)
+          self.matched_points = value
+        end
+      end
+
       if attributes.key?(:'pricing')
         self.pricing = attributes[:'pricing']
       end
@@ -159,6 +169,7 @@ module AdzerkDecisionSdk
           contents == o.contents &&
           impression_url == o.impression_url &&
           events == o.events &&
+          matched_points == o.matched_points &&
           pricing == o.pricing
     end
 
@@ -171,7 +182,7 @@ module AdzerkDecisionSdk
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [ad_id, creative_id, flight_id, campaign_id, priority_id, click_url, contents, impression_url, events, pricing].hash
+      [ad_id, creative_id, flight_id, campaign_id, priority_id, click_url, contents, impression_url, events, matched_points, pricing].hash
     end
 
     # Builds the object from hash

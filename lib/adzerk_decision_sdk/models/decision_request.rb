@@ -63,8 +63,6 @@ module AdzerkDecisionSdk
 
     attr_accessor :include_matched_points
 
-    attr_accessor :location
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -85,8 +83,7 @@ module AdzerkDecisionSdk
         :'parallel' => :'parallel',
         :'intended_latitude' => :'intendedLatitude',
         :'intended_longitude' => :'intendedLongitude',
-        :'include_matched_points' => :'includeMatchedPoints',
-        :'location' => :'location'
+        :'include_matched_points' => :'includeMatchedPoints'
       }
     end
 
@@ -110,8 +107,7 @@ module AdzerkDecisionSdk
         :'parallel' => :'Boolean',
         :'intended_latitude' => :'String',
         :'intended_longitude' => :'String',
-        :'include_matched_points' => :'Boolean',
-        :'location' => :'RequestLocation'
+        :'include_matched_points' => :'Boolean'
       }
     end
 
@@ -133,7 +129,7 @@ module AdzerkDecisionSdk
         :'parallel',
         :'intended_latitude',
         :'intended_longitude',
-        :'include_matched_points',
+        :'include_matched_points'
       ])
     end
 
@@ -229,10 +225,6 @@ module AdzerkDecisionSdk
       if attributes.key?(:'include_matched_points')
         self.include_matched_points = attributes[:'include_matched_points']
       end
-
-      if attributes.key?(:'location')
-        self.location = attributes[:'location']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -275,8 +267,7 @@ module AdzerkDecisionSdk
           parallel == o.parallel &&
           intended_latitude == o.intended_latitude &&
           intended_longitude == o.intended_longitude &&
-          include_matched_points == o.include_matched_points &&
-          location == o.location
+          include_matched_points == o.include_matched_points
     end
 
     # @see the `==` method
@@ -288,7 +279,7 @@ module AdzerkDecisionSdk
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [placements, user, keywords, url, referrer, ip, blocked_creatives, is_mobile, include_pricing_data, notrack, enable_bot_filtering, enable_user_dbip, consent, device_id, parallel, intended_latitude, intended_longitude, include_matched_points, location].hash
+      [placements, user, keywords, url, referrer, ip, blocked_creatives, is_mobile, include_pricing_data, notrack, enable_bot_filtering, enable_user_dbip, consent, device_id, parallel, intended_latitude, intended_longitude, include_matched_points].hash
     end
 
     # Builds the object from hash
