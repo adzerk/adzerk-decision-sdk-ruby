@@ -50,9 +50,10 @@ module AdzerkDecisionSdk
       @logger.info("Requesting with headers: #{opts[:header_params]}")
 
       response = @api.get_decisions(opts)
+      @logger.info("Received response: #{response}")
 
       parsed_response = parse_response(response)
-      @logger.info("Received response: #{parsed_response}")
+      @logger.info("Parsed response: #{parsed_response}")
 
       return parsed_response
     end
