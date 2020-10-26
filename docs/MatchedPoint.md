@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **lat** | **String** |  | [optional] 
-**long** | **String** |  | [optional] 
+**lon** | **String** |  | [optional] 
 
 ## Code Sample
 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 require 'AdzerkDecisionSdk'
 
 instance = AdzerkDecisionSdk::MatchedPoint.new(lat: null,
-                                 long: null)
+                                 lon: null)
 ```
 
 

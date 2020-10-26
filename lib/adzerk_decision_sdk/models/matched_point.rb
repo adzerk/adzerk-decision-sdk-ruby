@@ -16,13 +16,13 @@ module AdzerkDecisionSdk
   class MatchedPoint
     attr_accessor :lat
 
-    attr_accessor :long
+    attr_accessor :lon
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'lat' => :'lat',
-        :'long' => :'long'
+        :'lon' => :'lon'
       }
     end
 
@@ -30,7 +30,7 @@ module AdzerkDecisionSdk
     def self.openapi_types
       {
         :'lat' => :'String',
-        :'long' => :'String'
+        :'lon' => :'String'
       }
     end
 
@@ -59,8 +59,8 @@ module AdzerkDecisionSdk
         self.lat = attributes[:'lat']
       end
 
-      if attributes.key?(:'long')
-        self.long = attributes[:'long']
+      if attributes.key?(:'lon')
+        self.lon = attributes[:'lon']
       end
     end
 
@@ -83,7 +83,7 @@ module AdzerkDecisionSdk
       return true if self.equal?(o)
       self.class == o.class &&
           lat == o.lat &&
-          long == o.long
+          lon == o.lon
     end
 
     # @see the `==` method
@@ -95,7 +95,7 @@ module AdzerkDecisionSdk
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [lat, long].hash
+      [lat, lon].hash
     end
 
     # Builds the object from hash
