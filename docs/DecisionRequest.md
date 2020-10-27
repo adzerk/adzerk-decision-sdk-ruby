@@ -18,6 +18,10 @@ Name | Type | Description | Notes
 **enable_user_dbip** | **Boolean** | If true, override the IP address of the request with the IP address supplied on the UserKey. If no IP address is found on the UserKey, this will fall back to the IP address on the request. Requires UserDB | [optional] 
 **consent** | [**Object**](.md) | Object that sets the data consent preferences. Other consent settings are available in the GDPR settings documentation. | [optional] 
 **device_id** | **String** | RTB requests only - sets an Identifier for Advertisers (IFA or IDFA) | [optional] 
+**parallel** | **Boolean** |  | [optional] 
+**intended_latitude** | **String** |  | [optional] 
+**intended_longitude** | **String** |  | [optional] 
+**include_matched_points** | **Boolean** |  | [optional] 
 
 ## Code Sample
 
@@ -37,7 +41,11 @@ instance = AdzerkDecisionSdk::DecisionRequest.new(placements: null,
                                  enable_bot_filtering: null,
                                  enable_user_dbip: null,
                                  consent: null,
-                                 device_id: null)
+                                 device_id: null,
+                                 parallel: null,
+                                 intended_latitude: null,
+                                 intended_longitude: null,
+                                 include_matched_points: null)
 ```
 
 

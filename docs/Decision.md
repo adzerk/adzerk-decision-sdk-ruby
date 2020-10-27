@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **contents** | [**Array&lt;Content&gt;**](Content.md) |  | [optional] 
 **impression_url** | **String** |  | [optional] 
 **events** | [**Array&lt;Event&gt;**](Event.md) |  | [optional] 
+**matched_points** | [**Array&lt;MatchedPoint&gt;**](MatchedPoint.md) |  | [optional] 
 **pricing** | [**PricingData**](PricingData.md) |  | [optional] 
 
 ## Code Sample
@@ -29,6 +30,7 @@ instance = AdzerkDecisionSdk::Decision.new(ad_id: null,
                                  contents: null,
                                  impression_url: null,
                                  events: null,
+                                 matched_points: null,
                                  pricing: null)
 ```
 

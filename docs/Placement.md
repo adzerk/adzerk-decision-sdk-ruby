@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **proportionality** | **Boolean** | (BETA) If true, fills ads in a multi-winner placement in proportion to the flight&#39;s goals | [optional] 
 **ecpm_partition** | **String** | (BETA) The name of the eCPM Partition that should be used to source eCPM data for auctions | [optional] 
 **event_multiplier** | **Integer** |  | [optional] 
+**skip_selection** | **Boolean** |  | [optional] 
 
 ## Code Sample
 
@@ -43,7 +44,8 @@ instance = AdzerkDecisionSdk::Placement.new(div_name: null,
                                  count: null,
                                  proportionality: null,
                                  ecpm_partition: null,
-                                 event_multiplier: null)
+                                 event_multiplier: null,
+                                 skip_selection: null)
 ```
 
 

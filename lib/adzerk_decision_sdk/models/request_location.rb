@@ -13,60 +13,24 @@ OpenAPI Generator version: 4.3.1
 require 'date'
 
 module AdzerkDecisionSdk
-  class Decision
-    attr_accessor :ad_id
+  class RequestLocation
+    attr_accessor :latitude
 
-    attr_accessor :creative_id
-
-    attr_accessor :flight_id
-
-    attr_accessor :campaign_id
-
-    attr_accessor :priority_id
-
-    attr_accessor :click_url
-
-    attr_accessor :contents
-
-    attr_accessor :impression_url
-
-    attr_accessor :events
-
-    attr_accessor :matched_points
-
-    attr_accessor :pricing
+    attr_accessor :longitude
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'ad_id' => :'adId',
-        :'creative_id' => :'creativeId',
-        :'flight_id' => :'flightId',
-        :'campaign_id' => :'campaignId',
-        :'priority_id' => :'priorityId',
-        :'click_url' => :'clickUrl',
-        :'contents' => :'contents',
-        :'impression_url' => :'impressionUrl',
-        :'events' => :'events',
-        :'matched_points' => :'matchedPoints',
-        :'pricing' => :'pricing'
+        :'latitude' => :'latitude',
+        :'longitude' => :'longitude'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'ad_id' => :'Integer',
-        :'creative_id' => :'Integer',
-        :'flight_id' => :'Integer',
-        :'campaign_id' => :'Integer',
-        :'priority_id' => :'Integer',
-        :'click_url' => :'String',
-        :'contents' => :'Array<Content>',
-        :'impression_url' => :'String',
-        :'events' => :'Array<Event>',
-        :'matched_points' => :'Array<MatchedPoint>',
-        :'pricing' => :'PricingData'
+        :'latitude' => :'String',
+        :'longitude' => :'String'
       }
     end
 
@@ -80,65 +44,23 @@ module AdzerkDecisionSdk
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `AdzerkDecisionSdk::Decision` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `AdzerkDecisionSdk::RequestLocation` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `AdzerkDecisionSdk::Decision`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `AdzerkDecisionSdk::RequestLocation`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'ad_id')
-        self.ad_id = attributes[:'ad_id']
+      if attributes.key?(:'latitude')
+        self.latitude = attributes[:'latitude']
       end
 
-      if attributes.key?(:'creative_id')
-        self.creative_id = attributes[:'creative_id']
-      end
-
-      if attributes.key?(:'flight_id')
-        self.flight_id = attributes[:'flight_id']
-      end
-
-      if attributes.key?(:'campaign_id')
-        self.campaign_id = attributes[:'campaign_id']
-      end
-
-      if attributes.key?(:'priority_id')
-        self.priority_id = attributes[:'priority_id']
-      end
-
-      if attributes.key?(:'click_url')
-        self.click_url = attributes[:'click_url']
-      end
-
-      if attributes.key?(:'contents')
-        if (value = attributes[:'contents']).is_a?(Array)
-          self.contents = value
-        end
-      end
-
-      if attributes.key?(:'impression_url')
-        self.impression_url = attributes[:'impression_url']
-      end
-
-      if attributes.key?(:'events')
-        if (value = attributes[:'events']).is_a?(Array)
-          self.events = value
-        end
-      end
-
-      if attributes.key?(:'matched_points')
-        if (value = attributes[:'matched_points']).is_a?(Array)
-          self.matched_points = value
-        end
-      end
-
-      if attributes.key?(:'pricing')
-        self.pricing = attributes[:'pricing']
+      if attributes.key?(:'longitude')
+        self.longitude = attributes[:'longitude']
       end
     end
 
@@ -160,17 +82,8 @@ module AdzerkDecisionSdk
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          ad_id == o.ad_id &&
-          creative_id == o.creative_id &&
-          flight_id == o.flight_id &&
-          campaign_id == o.campaign_id &&
-          priority_id == o.priority_id &&
-          click_url == o.click_url &&
-          contents == o.contents &&
-          impression_url == o.impression_url &&
-          events == o.events &&
-          matched_points == o.matched_points &&
-          pricing == o.pricing
+          latitude == o.latitude &&
+          longitude == o.longitude
     end
 
     # @see the `==` method
@@ -182,7 +95,7 @@ module AdzerkDecisionSdk
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [ad_id, creative_id, flight_id, campaign_id, priority_id, click_url, contents, impression_url, events, matched_points, pricing].hash
+      [latitude, longitude].hash
     end
 
     # Builds the object from hash

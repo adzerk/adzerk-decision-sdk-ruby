@@ -64,6 +64,8 @@ module AdzerkDecisionSdk
 
     attr_accessor :event_multiplier
 
+    attr_accessor :skip_selection
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -83,7 +85,8 @@ module AdzerkDecisionSdk
         :'count' => :'count',
         :'proportionality' => :'proportionality',
         :'ecpm_partition' => :'ecpmPartition',
-        :'event_multiplier' => :'eventMultiplier'
+        :'event_multiplier' => :'eventMultiplier',
+        :'skip_selection' => :'skipSelection'
       }
     end
 
@@ -106,7 +109,8 @@ module AdzerkDecisionSdk
         :'count' => :'Integer',
         :'proportionality' => :'Boolean',
         :'ecpm_partition' => :'String',
-        :'event_multiplier' => :'Integer'
+        :'event_multiplier' => :'Integer',
+        :'skip_selection' => :'Boolean'
       }
     end
 
@@ -125,7 +129,8 @@ module AdzerkDecisionSdk
         :'count',
         :'proportionality',
         :'ecpm_partition',
-        :'event_multiplier'
+        :'event_multiplier',
+        :'skip_selection'
       ])
     end
 
@@ -219,6 +224,10 @@ module AdzerkDecisionSdk
       if attributes.key?(:'event_multiplier')
         self.event_multiplier = attributes[:'event_multiplier']
       end
+
+      if attributes.key?(:'skip_selection')
+        self.skip_selection = attributes[:'skip_selection']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -279,7 +288,8 @@ module AdzerkDecisionSdk
           count == o.count &&
           proportionality == o.proportionality &&
           ecpm_partition == o.ecpm_partition &&
-          event_multiplier == o.event_multiplier
+          event_multiplier == o.event_multiplier &&
+          skip_selection == o.skip_selection
     end
 
     # @see the `==` method
@@ -291,7 +301,7 @@ module AdzerkDecisionSdk
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [div_name, network_id, site_id, ad_types, zone_ids, campaign_id, flight_id, ad_id, click_url, properties, event_ids, overrides, content_keys, count, proportionality, ecpm_partition, event_multiplier].hash
+      [div_name, network_id, site_id, ad_types, zone_ids, campaign_id, flight_id, ad_id, click_url, properties, event_ids, overrides, content_keys, count, proportionality, ecpm_partition, event_multiplier, skip_selection].hash
     end
 
     # Builds the object from hash
