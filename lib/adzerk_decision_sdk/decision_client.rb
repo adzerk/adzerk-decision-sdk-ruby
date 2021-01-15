@@ -29,7 +29,7 @@ module AdzerkDecisionSdk
           fail ArgumentError, "Each placement needs at least one ad type"
         end
 
-        @deprecated_placement_fields.each |pair|
+        @deprecated_placement_fields.each do |pair|
           deprecated_field, replacement = pair
           if placement.has_key?(deprecated_field) and !placement[deprecated_field].nil?
             @logger.warn("DEPRECATION WARNING: #{deprecated_field} has been deprecated. Please use #{replacement} instead.")
