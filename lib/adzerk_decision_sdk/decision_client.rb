@@ -2,11 +2,13 @@ require 'adzerk_decision_sdk/api/decision_api'
 
 module AdzerkDecisionSdk
   class DecisionClient
+
     def initialize(network_id, site_id, api_client, logger)
       @network_id = network_id
       @site_id = site_id
       @api = DecisionApi.new(api_client)
       @logger = logger
+      @deprecated_placement_fields = [[:ecpm_partition, 'ecpm_partitions']]
     end
 
     def get(request, opts = {})
@@ -26,6 +28,14 @@ module AdzerkDecisionSdk
         if !placement.has_key?(:adTypes) or !placement[:adTypes] or placement[:adTypes].length() == 0
           fail ArgumentError, "Each placement needs at least one ad type"
         end
+
+        @deprecated_placement_fields.each |pair|
+          deprecated_field, replacement = pair
+          if placement.has_key?(deprecated_field) and !placement[deprecated_field].nil?
+            @logger.warn("DEPRECATION WARNING: #{deprecated_field} has been deprecated. Please use #{replacement} instead.")
+          end
+        end
+
         placement[:networkId] = @network_id if not placement.has_key?(:networkId)
         placement[:siteId] = @site_id if not placement.has_key?(:siteId)
         placement[:divName] = "div#{idx}" if not placement.has_key?(:divName)
