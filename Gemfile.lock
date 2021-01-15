@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    adzerk_decision_sdk (1.0.0.pre.beta.3)
+    adzerk_decision_sdk (1.0.0.pre.beta.5)
       json (~> 2.1, >= 2.1.0)
       typhoeus (~> 1.0, >= 1.0.1)
 
