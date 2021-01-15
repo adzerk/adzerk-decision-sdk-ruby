@@ -62,9 +62,14 @@ module AdzerkDecisionSdk
     # (BETA) The name of the eCPM Partition that should be used to source eCPM data for auctions
     attr_accessor :ecpm_partition
 
+    # (BETA) The names of the eCPM Partitions that should be used to source eCPM data for auctions
+    attr_accessor :ecpm_partitions
+
     attr_accessor :event_multiplier
 
     attr_accessor :skip_selection
+
+    attr_accessor :ad_query
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -85,8 +90,10 @@ module AdzerkDecisionSdk
         :'count' => :'count',
         :'proportionality' => :'proportionality',
         :'ecpm_partition' => :'ecpmPartition',
+        :'ecpm_partitions' => :'ecpmPartitions',
         :'event_multiplier' => :'eventMultiplier',
-        :'skip_selection' => :'skipSelection'
+        :'skip_selection' => :'skipSelection',
+        :'ad_query' => :'adQuery'
       }
     end
 
@@ -109,8 +116,10 @@ module AdzerkDecisionSdk
         :'count' => :'Integer',
         :'proportionality' => :'Boolean',
         :'ecpm_partition' => :'String',
+        :'ecpm_partitions' => :'Array<String>',
         :'event_multiplier' => :'Integer',
-        :'skip_selection' => :'Boolean'
+        :'skip_selection' => :'Boolean',
+        :'ad_query' => :'Object'
       }
     end
 
@@ -129,8 +138,10 @@ module AdzerkDecisionSdk
         :'count',
         :'proportionality',
         :'ecpm_partition',
+        :'ecpm_partitions',
         :'event_multiplier',
-        :'skip_selection'
+        :'skip_selection',
+        :'ad_query'
       ])
     end
 
@@ -221,12 +232,22 @@ module AdzerkDecisionSdk
         self.ecpm_partition = attributes[:'ecpm_partition']
       end
 
+      if attributes.key?(:'ecpm_partitions')
+        if (value = attributes[:'ecpm_partitions']).is_a?(Array)
+          self.ecpm_partitions = value
+        end
+      end
+
       if attributes.key?(:'event_multiplier')
         self.event_multiplier = attributes[:'event_multiplier']
       end
 
       if attributes.key?(:'skip_selection')
         self.skip_selection = attributes[:'skip_selection']
+      end
+
+      if attributes.key?(:'ad_query')
+        self.ad_query = attributes[:'ad_query']
       end
     end
 
@@ -288,8 +309,10 @@ module AdzerkDecisionSdk
           count == o.count &&
           proportionality == o.proportionality &&
           ecpm_partition == o.ecpm_partition &&
+          ecpm_partitions == o.ecpm_partitions &&
           event_multiplier == o.event_multiplier &&
-          skip_selection == o.skip_selection
+          skip_selection == o.skip_selection &&
+          ad_query == o.ad_query
     end
 
     # @see the `==` method
@@ -301,7 +324,7 @@ module AdzerkDecisionSdk
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [div_name, network_id, site_id, ad_types, zone_ids, campaign_id, flight_id, ad_id, click_url, properties, event_ids, overrides, content_keys, count, proportionality, ecpm_partition, event_multiplier, skip_selection].hash
+      [div_name, network_id, site_id, ad_types, zone_ids, campaign_id, flight_id, ad_id, click_url, properties, event_ids, overrides, content_keys, count, proportionality, ecpm_partition, ecpm_partitions, event_multiplier, skip_selection, ad_query].hash
     end
 
     # Builds the object from hash
