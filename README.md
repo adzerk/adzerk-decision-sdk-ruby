@@ -96,9 +96,23 @@ client = AdzerkDecisionSdk::Client.new(network_id: 23, api_key: "YOUR_API_KEY")
 client.user_db.forget("abc")
 ```
 
-<!-- ### Logging Example
+### Logging
 
-TBD: ....... -->
+Our logging implementation is meant to be flexible enough to fit into any common Ruby logging framework.
+
+You can use the [logger](https://ruby-doc.org/stdlib-2.4.0/libdoc/logger/rdoc/Logger.html) utility to output messages. 
+
+The messages have associated levels: unknown, fatal, error, warn, info, and debug.
+
+The easiest way to integrate is to write a function that handles translating the data from the Adzerk SDK Logger into whatever logging framework you're using in the rest of your application:
+
+```ruby
+require "adzerk_decision_sdk"
+
+logger.level("Message")
+
+client = AdzerkDecisionSdk::Client.new(logger)
+```
 
 ## Documentation
 
