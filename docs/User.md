@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**key** | **String** | The UserKey used for UserDB Targeting | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **key** | **String** | The UserKey used for UserDB Targeting | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'AdzerkDecisionSdk'
+require 'adzerk_decision_sdk'
 
-instance = AdzerkDecisionSdk::User.new(key: null)
+instance = AdzerkDecisionSdk::User.new(
+  key: null
+)
 ```
-
 

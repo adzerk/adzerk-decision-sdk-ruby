@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**user_key** | **String** |  | [optional] 
-**consent** | [**Object**](.md) |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **user_key** | **String** |  | [optional] |
+| **consent** | **Object** |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'AdzerkDecisionSdk'
+require 'adzerk_decision_sdk'
 
-instance = AdzerkDecisionSdk::ConsentRequest.new(user_key: null,
-                                 consent: null)
+instance = AdzerkDecisionSdk::ConsentRequest.new(
+  user_key: null,
+  consent: null
+)
 ```
-
 
