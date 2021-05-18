@@ -96,6 +96,55 @@ client = AdzerkDecisionSdk::Client.new(network_id: 23, api_key: "YOUR_API_KEY")
 client.user_db.forget("abc")
 ```
 
+### Decision Explainer
+
+The Decision Explainer is a feature that returns information on a Decision API request explaining why each candidate ad was or was not chosen. 
+
+```ruby
+require "adzerk_decision_sdk"
+
+# Demo network, site, and ad type IDs; find your own via the Adzerk UI!
+client = AdzerkDecisionSdk::Client.new(network_id: 23, site_id: 667480)
+
+request = {
+  placements: [{ adTypes: [5] }],
+  user: { key: "abc" },
+  keywords: ["keyword1", "keyword2"],
+}
+
+options = {
+  include_explanation: true,
+  api_key: "ADZERK_API_KEY"
+}
+
+pp client.decisions.get(request, options)
+```
+
+The response returns a decision object with placement, buckets, rtb logs, and result information.
+``` json
+{
+  "div0": {
+    "placement": {},
+    "buckets": [],
+    "rtb_log": [],
+    "results": []
+  }
+}
+```
+The "placement" object represents a "slot" in which an ad may be served. A Explainer Request can have multiple placements in the request.
+The "buckets" array contains channel and priority information.
+The "rtb_logs" array contains information about Real Time Bidding.
+The "results" array contains the list of candidate ads that did and did not serve, along with a brief explanation.
+
+| Phase | Channel | Priority | Advertiser | Campaign | Flight | ad | ECMP | Weight | Info |
+| ----- | ------- | -------- | ---------- | -------- | ------ | -- | ---- | ------ | ---- |
+| targeting | 44840 | 180733 | 737031 | 1389814 | 11169592 | 19232179 | 0 | 1 | The placement could not satisfy the flight's site-zone targeting rules |
+| targeting | 44840 | 180733 | 737031 | 1389814 | 11169599 | 19232193 | 0 | 1 | The ad specified inclusive keyword patterns, but the request contained no keywords |
+| targeting | 44840 | 180733 | 737031 | 1389814 | 11169651 | 19232324 | 0 | 1 | The custom targeting predicate failed |
+| selection | 44840 | 180733 | 737031 | 1389814 | 11168238 | 19230087 | 0 | 1 | not selected to serve |
+| selection | 44840 | 180733 | 737031 | 1389814 | 11168241 | 19230089 | 0 | 1 | selected to serve |
+
+
 ### Logging
 
 Our logging implementation is meant to be flexible enough to fit into any common Ruby logging framework.
