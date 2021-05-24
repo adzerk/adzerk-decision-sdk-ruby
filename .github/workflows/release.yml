@@ -10,7 +10,7 @@ jobs:
         with:
           ref: master
       - name: update version
-        run: sed -i -r "s/VERSION = '[0-9a-z.-]+'\$/VERSION = '${GITHUB_REF#refs/*/}'/g" lib/adzerk_decision_sdk/version.rb
+        run: sed -i -r "s/VERSION = '[0-9a-z.-]+'\$/VERSION = '$(echo ${GITHUB_REF#refs/*/} | cut -d'v' -f 2)'/g" lib/adzerk_decision_sdk/version.rb
       - name: push updated version
         run: |
           git config --global user.name 'Kevel CI'
