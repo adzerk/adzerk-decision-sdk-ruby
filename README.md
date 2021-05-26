@@ -92,7 +92,7 @@ client.user_db.set_custom_properties("abc", props)
 require "adzerk_decision_sdk"
 
 # Demo network ID and API key; find your own via the Adzerk UI!
-client = AdzerkDecisionSdk::Client.new(network_id: 23, api_key: "YOUR_API_KEY")
+client = AdzerkDecisionSdk::Client.new(network_id: 23, api_key: ENV["ADZERK_API_KEY"])
 client.user_db.forget("abc")
 ```
 
@@ -114,7 +114,7 @@ request = {
 
 options = {
   include_explanation: true,
-  api_key: "ADZERK_API_KEY"
+  api_key: ENV["ADZERK_API_KEY"]
 }
 
 pp client.decisions.get(request, options)
