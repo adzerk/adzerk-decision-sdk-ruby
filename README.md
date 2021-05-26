@@ -98,7 +98,7 @@ client.user_db.forget("abc")
 
 ### Decision Explainer
 
-The Decision Explainer is a feature that returns information on a Decision API request explaining why each candidate ad was or was not chosen. 
+The Decision Explainer returns information on a Decision API request explaining why each candidate ad was or was not chosen. 
 
 ```ruby
 require "adzerk_decision_sdk"
