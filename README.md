@@ -9,7 +9,7 @@ Requires [Ruby 2.5](https://en.wikipedia.org/wiki/Ruby_(programming_language)#Ta
 [RubyGem Package](https://rubygems.org/gems/adzerk_decision_sdk)
 
 ```shell
-gem install adzerk_decision_sdk
+gem install adzerk_decision_sdk --pre
 ```
 
 Or add to your `Gemfile`:
