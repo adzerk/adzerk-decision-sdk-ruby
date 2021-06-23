@@ -10,7 +10,7 @@ module AdzerkDecisionSdk
 
     def set_custom_properties(user_key, properties, network_id: nil)
       @logger.info("Setting custom properties for #{user_key} on #{network_id || @network_id} to: #{properties}")
-      @api.add_custom_properties(network_id || @network_id, user_key, { body: properties })
+      @api.add_custom_properties(network_id || @network_id, user_key, { debug_body: properties })
     end
 
     def add_interest(user_key, interest, network_id: nil)
@@ -31,7 +31,7 @@ module AdzerkDecisionSdk
     def gdpr_consent(gdpr_consent, network_id: nil)
       body = gdpr_consent.respond_to?('to_hash') ? gdpr_consent.to_hash() : gdpr_consent
       @logger.info("Setting GDPR consent on #{network_id || @network_id} with: #{body}")
-      @api.gdpr_consent(network_id || @network_id, { body: body })
+      @api.gdpr_consent(network_id || @network_id, { debug_body: body })
     end
 
     def ip_override(user_key, ip, network_id: nil)
