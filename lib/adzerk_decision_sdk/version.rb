@@ -11,5 +11,5 @@ OpenAPI Generator version: 4.3.1
 =end
 
 module AdzerkDecisionSdk
-  VERSION = '1.0.0-beta.7'
+  VERSION = '1.0.0-beta.8'
 end
