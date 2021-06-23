@@ -14,17 +14,17 @@ module AdzerkDecisionSdk
     def get(request, opts = {})
       opts ||= {}
       header_params = opts[:header_params] || {}
-      opts[:body] ||= request.respond_to?('to_hash') ? request.to_hash() : request
+      opts[:debug_body] ||= request.respond_to?('to_hash') ? request.to_hash() : request
 
-      @logger.info("Processing request: #{opts[:body]}")
+      @logger.info("Processing request: #{opts[:debug_body]}")
 
-      opts[:body][:enableBotFiltering] = false if not opts[:body].has_key?(:enableBotFiltering)
+      opts[:debug_body][:enableBotFiltering] = false if not opts[:debug_body].has_key?(:enableBotFiltering)
 
-      if !opts[:body].has_key?(:placements) or !opts[:body][:placements] or opts[:body][:placements].length() == 0
+      if !opts[:debug_body].has_key?(:placements) or !opts[:debug_body][:placements] or opts[:debug_body][:placements].length() == 0
         fail ArgumentError, "Each request requires at least one placement"
       end
 
-      opts[:body][:placements].each_with_index do |placement, idx|
+      opts[:debug_body][:placements].each_with_index do |placement, idx|
         if !placement.has_key?(:adTypes) or !placement[:adTypes] or placement[:adTypes].length() == 0
           fail ArgumentError, "Each placement needs at least one ad type"
         end
@@ -56,7 +56,7 @@ module AdzerkDecisionSdk
 
       opts[:header_params] = header_params
 
-      @logger.info("Processed request: #{opts[:body]}")
+      @logger.info("Processed request: #{opts[:debug_body]}")
       @logger.info("Requesting with headers: #{opts[:header_params]}")
 
       response = @api.get_decisions(opts)
