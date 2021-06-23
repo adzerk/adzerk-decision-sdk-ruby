@@ -25,7 +25,7 @@ module AdzerkDecisionSdk
       configuration = Configuration.new
       configuration.scheme = protocol
       configuration.host = host
-      configuration.api_key['X-Adzerk-ApiKey'] = api_key
+      configuration.api_key['ApiKeyAuth'] = api_key
       configuration.debugging = is_debug
       configuration.server_index = nil
 
