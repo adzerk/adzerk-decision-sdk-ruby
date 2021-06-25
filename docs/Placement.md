@@ -24,6 +24,8 @@
 | **event_multiplier** | **Integer** |  | [optional] |
 | **skip_selection** | **Boolean** |  | [optional] |
 | **ad_query** | **Object** |  | [optional] |
+| **floor_price** | **Float** |  | [optional] |
+| **floor_cpc** | **Float** |  | [optional] |
 
 ## Example
 
@@ -50,7 +52,9 @@ instance = AdzerkDecisionSdk::Placement.new(
   ecpm_partitions: null,
   event_multiplier: null,
   skip_selection: null,
-  ad_query: null
+  ad_query: null,
+  floor_price: null,
+  floor_cpc: null
 )
 ```
 
