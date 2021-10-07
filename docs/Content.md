@@ -2,25 +2,24 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **type** | **String** |  | [optional] |
-| **template** | **String** |  | [optional] |
-| **custom_template** | **String** |  | [optional] |
-| **data** | **Object** |  | [optional] |
-| **body** | **String** |  | [optional] |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**type** | **String** |  | [optional] 
+**template** | **String** |  | [optional] 
+**custom_template** | **String** |  | [optional] 
+**data** | [**Object**](.md) |  | [optional] 
+**body** | **String** |  | [optional] 
 
-## Example
+## Code Sample
 
 ```ruby
-require 'adzerk_decision_sdk'
+require 'AdzerkDecisionSdk'
 
-instance = AdzerkDecisionSdk::Content.new(
-  type: null,
-  template: null,
-  custom_template: null,
-  data: null,
-  body: null
-)
+instance = AdzerkDecisionSdk::Content.new(type: null,
+                                 template: null,
+                                 custom_template: null,
+                                 data: null,
+                                 body: null)
 ```
+
 

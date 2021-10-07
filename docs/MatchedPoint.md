@@ -2,19 +2,18 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **lat** | **String** |  | [optional] |
-| **lon** | **String** |  | [optional] |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**lat** | **String** |  | [optional] 
+**lon** | **String** |  | [optional] 
 
-## Example
+## Code Sample
 
 ```ruby
-require 'adzerk_decision_sdk'
+require 'AdzerkDecisionSdk'
 
-instance = AdzerkDecisionSdk::MatchedPoint.new(
-  lat: null,
-  lon: null
-)
+instance = AdzerkDecisionSdk::MatchedPoint.new(lat: null,
+                                 lon: null)
 ```
+
 

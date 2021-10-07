@@ -2,19 +2,18 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **id** | **Integer** |  | [optional] |
-| **url** | **String** |  | [optional] |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**id** | **Integer** |  | [optional] 
+**url** | **String** |  | [optional] 
 
-## Example
+## Code Sample
 
 ```ruby
-require 'adzerk_decision_sdk'
+require 'AdzerkDecisionSdk'
 
-instance = AdzerkDecisionSdk::Event.new(
-  id: null,
-  url: null
-)
+instance = AdzerkDecisionSdk::Event.new(id: null,
+                                 url: null)
 ```
+
 

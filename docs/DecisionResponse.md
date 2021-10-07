@@ -2,21 +2,20 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **user** | [**User**](User.md) |  | [optional] |
-| **decisions** | **Object** |  | [optional] |
-| **explain** | **Object** |  | [optional] |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**user** | [**User**](User.md) |  | [optional] 
+**decisions** | [**Object**](.md) |  | [optional] 
+**explain** | [**Object**](.md) |  | [optional] 
 
-## Example
+## Code Sample
 
 ```ruby
-require 'adzerk_decision_sdk'
+require 'AdzerkDecisionSdk'
 
-instance = AdzerkDecisionSdk::DecisionResponse.new(
-  user: null,
-  decisions: null,
-  explain: null
-)
+instance = AdzerkDecisionSdk::DecisionResponse.new(user: null,
+                                 decisions: null,
+                                 explain: null)
 ```
+
 
