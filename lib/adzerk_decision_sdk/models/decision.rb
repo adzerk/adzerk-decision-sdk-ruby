@@ -17,6 +17,8 @@ module AdzerkDecisionSdk
   class Decision
     attr_accessor :ad_id
 
+    attr_accessor :advertiser_id
+
     attr_accessor :creative_id
 
     attr_accessor :flight_id
@@ -41,6 +43,7 @@ module AdzerkDecisionSdk
     def self.attribute_map
       {
         :'ad_id' => :'adId',
+        :'advertiser_id' => :'advertiserId',
         :'creative_id' => :'creativeId',
         :'flight_id' => :'flightId',
         :'campaign_id' => :'campaignId',
@@ -63,6 +66,7 @@ module AdzerkDecisionSdk
     def self.openapi_types
       {
         :'ad_id' => :'Integer',
+        :'advertiser_id' => :'Integer',
         :'creative_id' => :'Integer',
         :'flight_id' => :'Integer',
         :'campaign_id' => :'Integer',
@@ -99,6 +103,10 @@ module AdzerkDecisionSdk
 
       if attributes.key?(:'ad_id')
         self.ad_id = attributes[:'ad_id']
+      end
+
+      if attributes.key?(:'advertiser_id')
+        self.advertiser_id = attributes[:'advertiser_id']
       end
 
       if attributes.key?(:'creative_id')
@@ -167,6 +175,7 @@ module AdzerkDecisionSdk
       return true if self.equal?(o)
       self.class == o.class &&
           ad_id == o.ad_id &&
+          advertiser_id == o.advertiser_id &&
           creative_id == o.creative_id &&
           flight_id == o.flight_id &&
           campaign_id == o.campaign_id &&
@@ -188,7 +197,7 @@ module AdzerkDecisionSdk
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [ad_id, creative_id, flight_id, campaign_id, priority_id, click_url, contents, impression_url, events, matched_points, pricing].hash
+      [ad_id, advertiser_id, creative_id, flight_id, campaign_id, priority_id, click_url, contents, impression_url, events, matched_points, pricing].hash
     end
 
     # Builds the object from hash

@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **ad_id** | **Integer** |  | [optional] |
+| **advertiser_id** | **Integer** |  | [optional] |
 | **creative_id** | **Integer** |  | [optional] |
 | **flight_id** | **Integer** |  | [optional] |
 | **campaign_id** | **Integer** |  | [optional] |
@@ -23,6 +24,7 @@ require 'adzerk_decision_sdk'
 
 instance = AdzerkDecisionSdk::Decision.new(
   ad_id: null,
+  advertiser_id: null,
   creative_id: null,
   flight_id: null,
   campaign_id: null,
