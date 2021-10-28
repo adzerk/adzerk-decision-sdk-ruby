@@ -45,6 +45,7 @@ module AdzerkDecisionSdk
 
       if opts.has_key?(:include_explanation) and opts[:include_explanation] == true
         header_params['X-Adzerk-Explain'] = opts[:api_key]
+        header_params['Desired-Ad'] = opts[:desired_ad]
         @logger.warn("--------------------------------------------------------------")
         @logger.warn("              !!! WARNING - WARNING - WARNING !!!             ")
         @logger.warn("")
