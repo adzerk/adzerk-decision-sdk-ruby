@@ -44,8 +44,23 @@ module AdzerkDecisionSdk
       header_params['User-Agent'] = opts[:user_agent] if opts.has_key?(:user_agent)
 
       if opts.has_key?(:include_explanation) and opts[:include_explanation] == true
+        if opts[:desired_ads]
+          header_object = {
+            api_key: opts[:api_key],
+            desired_ads: opts[:desired_ads]
+          }
+          header_params['X-Adzerk-Explain'] = header_object.to_json
+        end
+
+        if opts[:desired_ad_map]
+          header_object = {
+            api_key: opts[:api_key],
+            desired_ad_map: opts[:desired_ad_map]
+          }
+          header_params['X-Adzerk-Explain'] = header_object.to_json
+        end
+
         header_params['X-Adzerk-Explain'] = opts[:api_key]
-        header_params['Desired-Ad'] = opts[:desired_ad]
         @logger.warn("--------------------------------------------------------------")
         @logger.warn("              !!! WARNING - WARNING - WARNING !!!             ")
         @logger.warn("")
