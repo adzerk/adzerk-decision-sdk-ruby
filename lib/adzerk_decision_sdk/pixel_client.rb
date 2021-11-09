@@ -16,7 +16,7 @@ module AdzerkDecisionSdk
       query_params << ["override", revenue_override] if not revenue_override.nil?
       query_params << ["additional", additional_revenue] if not additional_revenue.nil?
       query_params << ["eventMultiplier", event_multiplier] if not event_multiplier.nil?
-      query_params << ["grossMerchandiseValue", gross_merchandise_value] if not gross_merchandise_value.nil?
+      query_params << ["gmv", gross_merchandise_value] if not gross_merchandise_value.nil?
       uri.query = URI.encode_www_form(query_params)
       new_url = uri.to_s()
 
