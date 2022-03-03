@@ -35,6 +35,7 @@ module AdzerkDecisionSdk
 
       api_client = ApiClient.new(configuration)
       api_client.default_headers['X-Adzerk-Sdk-Version'] = "adzerk-decision-sdk-ruby:#{version}"
+      api_client.default_headers['X-Adzerk-ApiKey'] = api_key
 
       @decisions = DecisionClient.new(network_id, site_id, api_client, configuration.logger)
       @user_db = UserDbClient.new(network_id, api_client, configuration.logger)
