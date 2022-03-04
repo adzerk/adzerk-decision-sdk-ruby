@@ -3,11 +3,10 @@ require 'adzerk_decision_sdk/api/decision_api'
 module AdzerkDecisionSdk
   class DecisionClient
 
-    def initialize(network_id, site_id, api_client, api_key, logger)
+    def initialize(network_id, site_id, api_client, logger)
       @network_id = network_id
       @site_id = site_id
       @api = DecisionApi.new(api_client)
-      @api_key = api_key
       @logger = logger
       @deprecated_placement_fields = [[:ecpm_partition, 'ecpm_partitions']]
     end
