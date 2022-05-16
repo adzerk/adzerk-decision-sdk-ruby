@@ -1,7 +1,6 @@
 .gitignore
 .rspec
 .rubocop.yml
-.travis.yml
 Gemfile
 Rakefile
 adzerk_decision_sdk.gemspec

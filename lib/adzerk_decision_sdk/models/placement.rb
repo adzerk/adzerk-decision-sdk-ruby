@@ -124,7 +124,7 @@ module AdzerkDecisionSdk
         :'properties' => :'Object',
         :'event_ids' => :'Array<Integer>',
         :'overrides' => :'Object',
-        :'content_keys' => :'Hash<String, Integer>',
+        :'content_keys' => :'Hash<String, String>',
         :'count' => :'Integer',
         :'proportionality' => :'Boolean',
         :'ecpm_partition' => :'String',
