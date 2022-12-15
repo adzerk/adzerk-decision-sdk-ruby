@@ -7,10 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Ruby 2.6
-      uses: actions/setup-ruby@v1
+    - name: set up ruby
+      uses: ruby/setup-ruby@v1
       with:
-        ruby-version: 2.6.x
+        ruby-version: '2.6'
     - name: Build and test with Rake
       run: |
         gem install bundler
@@ -21,10 +21,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Ruby 2.6
-      uses: actions/setup-ruby@v1
+    - name: set up ruby
+      uses: ruby/setup-ruby@v1
       with:
-        ruby-version: 2.6.x
+        ruby-version: '2.6'
     - name: Update Version
       run: sed -i -r "s/VERSION = '[0-9a-z.-]+'\$/VERSION = '0.0.1.${GITHUB_REF##*/}'/g" lib/adzerk_decision_sdk/version.rb
     - name: Publish to Artifactory
