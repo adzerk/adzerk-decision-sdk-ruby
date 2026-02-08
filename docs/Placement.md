@@ -26,6 +26,7 @@
 | **ad_query** | **Object** |  | [optional] |
 | **floor_price** | **Float** |  | [optional] |
 | **floor_cpc** | **Float** |  | [optional] |
+| **skip_filters** | [**SkipFilters**](SkipFilters.md) |  | [optional] |
 
 ## Example
 
@@ -54,7 +55,8 @@ instance = AdzerkDecisionSdk::Placement.new(
   skip_selection: null,
   ad_query: null,
   floor_price: null,
-  floor_cpc: null
+  floor_cpc: null,
+  skip_filters: null
 )
 ```
 

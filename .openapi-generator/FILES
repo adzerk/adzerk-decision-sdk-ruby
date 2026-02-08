@@ -14,6 +14,7 @@ docs/Event.md
 docs/MatchedPoint.md
 docs/Placement.md
 docs/PricingData.md
+docs/SkipFilters.md
 docs/User.md
 docs/UserdbApi.md
 git_push.sh
@@ -32,4 +33,5 @@ lib/adzerk_decision_sdk/models/event.rb
 lib/adzerk_decision_sdk/models/matched_point.rb
 lib/adzerk_decision_sdk/models/placement.rb
 lib/adzerk_decision_sdk/models/pricing_data.rb
+lib/adzerk_decision_sdk/models/skip_filters.rb
 lib/adzerk_decision_sdk/models/user.rb

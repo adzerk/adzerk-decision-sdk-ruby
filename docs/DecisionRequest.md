@@ -23,6 +23,7 @@
 | **intended_longitude** | **Float** |  | [optional] |
 | **radius** | **Float** |  | [optional] |
 | **include_matched_points** | **Boolean** |  | [optional] |
+| **search_term** | **String** | A way to target ads based on shopper search terms | [optional] |
 
 ## Example
 
@@ -48,7 +49,8 @@ instance = AdzerkDecisionSdk::DecisionRequest.new(
   intended_latitude: null,
   intended_longitude: null,
   radius: null,
-  include_matched_points: null
+  include_matched_points: null,
+  search_term: null
 )
 ```
 
