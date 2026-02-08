@@ -14,19 +14,42 @@ require 'date'
 require 'time'
 
 module AdzerkDecisionSdk
-  # Object containing the UserKey used for [UserDB targeting](https://dev.adzerk.com/docs/userdb-1)
-  class User
-    # The UserKey used for UserDB Targeting
-    attr_accessor :key
+  class SkipFilters
+    # Geodistance filter, which skips geodistance targeting if true.
+    attr_accessor :distance
 
-    # The assigned cohort for the User
-    attr_accessor :group
+    # Facet targeting filter, which skips facet targeting if true.
+    attr_accessor :facet
+
+    # Geodistance filter, which skips geodistance targeting if true.
+    attr_accessor :geodistance
+
+    # Geolocation filter, which skips location targeting if true.
+    attr_accessor :geolocation
+
+    # Keyword limit filter, which skips all (ad and/or flight) keyword targeting if true.
+    attr_accessor :keyword
+
+    # Geolocation filter, which skips location targeting if true.
+    attr_accessor :location
+
+    # Placement limit filter, where no advertiser placement limit if true.
+    attr_accessor :placement_limit
+
+    # Site/zone limit filter, which skips site/zone targeting if true.
+    attr_accessor :site_zone
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'key' => :'key',
-        :'group' => :'group'
+        :'distance' => :'distance',
+        :'facet' => :'facet',
+        :'geodistance' => :'geodistance',
+        :'geolocation' => :'geolocation',
+        :'keyword' => :'keyword',
+        :'location' => :'location',
+        :'placement_limit' => :'placementLimit',
+        :'site_zone' => :'siteZone'
       }
     end
 
@@ -38,8 +61,14 @@ module AdzerkDecisionSdk
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'key' => :'String',
-        :'group' => :'Integer'
+        :'distance' => :'Boolean',
+        :'facet' => :'Boolean',
+        :'geodistance' => :'Boolean',
+        :'geolocation' => :'Boolean',
+        :'keyword' => :'Boolean',
+        :'location' => :'Boolean',
+        :'placement_limit' => :'Boolean',
+        :'site_zone' => :'Boolean'
       }
     end
 
@@ -53,23 +82,47 @@ module AdzerkDecisionSdk
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `AdzerkDecisionSdk::User` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `AdzerkDecisionSdk::SkipFilters` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `AdzerkDecisionSdk::User`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `AdzerkDecisionSdk::SkipFilters`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'key')
-        self.key = attributes[:'key']
+      if attributes.key?(:'distance')
+        self.distance = attributes[:'distance']
       end
 
-      if attributes.key?(:'group')
-        self.group = attributes[:'group']
+      if attributes.key?(:'facet')
+        self.facet = attributes[:'facet']
+      end
+
+      if attributes.key?(:'geodistance')
+        self.geodistance = attributes[:'geodistance']
+      end
+
+      if attributes.key?(:'geolocation')
+        self.geolocation = attributes[:'geolocation']
+      end
+
+      if attributes.key?(:'keyword')
+        self.keyword = attributes[:'keyword']
+      end
+
+      if attributes.key?(:'location')
+        self.location = attributes[:'location']
+      end
+
+      if attributes.key?(:'placement_limit')
+        self.placement_limit = attributes[:'placement_limit']
+      end
+
+      if attributes.key?(:'site_zone')
+        self.site_zone = attributes[:'site_zone']
       end
     end
 
@@ -91,8 +144,14 @@ module AdzerkDecisionSdk
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          key == o.key &&
-          group == o.group
+          distance == o.distance &&
+          facet == o.facet &&
+          geodistance == o.geodistance &&
+          geolocation == o.geolocation &&
+          keyword == o.keyword &&
+          location == o.location &&
+          placement_limit == o.placement_limit &&
+          site_zone == o.site_zone
     end
 
     # @see the `==` method
@@ -104,7 +163,7 @@ module AdzerkDecisionSdk
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [key, group].hash
+      [distance, facet, geodistance, geolocation, keyword, location, placement_limit, site_zone].hash
     end
 
     # Builds the object from hash

@@ -76,6 +76,8 @@ module AdzerkDecisionSdk
 
     attr_accessor :floor_cpc
 
+    attr_accessor :skip_filters
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -100,7 +102,8 @@ module AdzerkDecisionSdk
         :'skip_selection' => :'skipSelection',
         :'ad_query' => :'adQuery',
         :'floor_price' => :'floorPrice',
-        :'floor_cpc' => :'floorCpc'
+        :'floor_cpc' => :'floorCpc',
+        :'skip_filters' => :'skipFilters'
       }
     end
 
@@ -133,7 +136,8 @@ module AdzerkDecisionSdk
         :'skip_selection' => :'Boolean',
         :'ad_query' => :'Object',
         :'floor_price' => :'Float',
-        :'floor_cpc' => :'Float'
+        :'floor_cpc' => :'Float',
+        :'skip_filters' => :'SkipFilters'
       }
     end
 
@@ -157,7 +161,7 @@ module AdzerkDecisionSdk
         :'skip_selection',
         :'ad_query',
         :'floor_price',
-        :'floor_cpc'
+        :'floor_cpc',
       ])
     end
 
@@ -273,6 +277,10 @@ module AdzerkDecisionSdk
       if attributes.key?(:'floor_cpc')
         self.floor_cpc = attributes[:'floor_cpc']
       end
+
+      if attributes.key?(:'skip_filters')
+        self.skip_filters = attributes[:'skip_filters']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -338,7 +346,8 @@ module AdzerkDecisionSdk
           skip_selection == o.skip_selection &&
           ad_query == o.ad_query &&
           floor_price == o.floor_price &&
-          floor_cpc == o.floor_cpc
+          floor_cpc == o.floor_cpc &&
+          skip_filters == o.skip_filters
     end
 
     # @see the `==` method
@@ -350,7 +359,7 @@ module AdzerkDecisionSdk
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [div_name, network_id, site_id, ad_types, zone_ids, campaign_id, flight_id, ad_id, click_url, properties, event_ids, overrides, content_keys, count, proportionality, ecpm_partition, ecpm_partitions, event_multiplier, skip_selection, ad_query, floor_price, floor_cpc].hash
+      [div_name, network_id, site_id, ad_types, zone_ids, campaign_id, flight_id, ad_id, click_url, properties, event_ids, overrides, content_keys, count, proportionality, ecpm_partition, ecpm_partitions, event_multiplier, skip_selection, ad_query, floor_price, floor_cpc, skip_filters].hash
     end
 
     # Builds the object from hash

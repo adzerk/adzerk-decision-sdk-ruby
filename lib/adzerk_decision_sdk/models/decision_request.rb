@@ -66,6 +66,9 @@ module AdzerkDecisionSdk
 
     attr_accessor :include_matched_points
 
+    # A way to target ads based on shopper search terms
+    attr_accessor :search_term
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -87,7 +90,8 @@ module AdzerkDecisionSdk
         :'intended_latitude' => :'intendedLatitude',
         :'intended_longitude' => :'intendedLongitude',
         :'radius' => :'radius',
-        :'include_matched_points' => :'includeMatchedPoints'
+        :'include_matched_points' => :'includeMatchedPoints',
+        :'search_term' => :'searchTerm'
       }
     end
 
@@ -117,7 +121,8 @@ module AdzerkDecisionSdk
         :'intended_latitude' => :'Float',
         :'intended_longitude' => :'Float',
         :'radius' => :'Float',
-        :'include_matched_points' => :'Boolean'
+        :'include_matched_points' => :'Boolean',
+        :'search_term' => :'String'
       }
     end
 
@@ -140,7 +145,8 @@ module AdzerkDecisionSdk
         :'intended_latitude',
         :'intended_longitude',
         :'radius',
-        :'include_matched_points'
+        :'include_matched_points',
+        :'search_term'
       ])
     end
 
@@ -240,6 +246,10 @@ module AdzerkDecisionSdk
       if attributes.key?(:'include_matched_points')
         self.include_matched_points = attributes[:'include_matched_points']
       end
+
+      if attributes.key?(:'search_term')
+        self.search_term = attributes[:'search_term']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -283,7 +293,8 @@ module AdzerkDecisionSdk
           intended_latitude == o.intended_latitude &&
           intended_longitude == o.intended_longitude &&
           radius == o.radius &&
-          include_matched_points == o.include_matched_points
+          include_matched_points == o.include_matched_points &&
+          search_term == o.search_term
     end
 
     # @see the `==` method
@@ -295,7 +306,7 @@ module AdzerkDecisionSdk
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [placements, user, keywords, url, referrer, ip, blocked_creatives, is_mobile, include_pricing_data, notrack, enable_bot_filtering, enable_user_dbip, consent, device_id, parallel, intended_latitude, intended_longitude, radius, include_matched_points].hash
+      [placements, user, keywords, url, referrer, ip, blocked_creatives, is_mobile, include_pricing_data, notrack, enable_bot_filtering, enable_user_dbip, consent, device_id, parallel, intended_latitude, intended_longitude, radius, include_matched_points, search_term].hash
     end
 
     # Builds the object from hash
