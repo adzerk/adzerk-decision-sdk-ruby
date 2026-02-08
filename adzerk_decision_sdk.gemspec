@@ -27,9 +27,9 @@ Gem::Specification.new do |s|
   s.license     = "Apache-2.0"
   s.required_ruby_version = ">= 2.4"
 
-  s.add_runtime_dependency 'typhoeus', '~> 1.0', '>= 1.0.1'
+  s.add_runtime_dependency 'typhoeus', '~> 1.4'
 
-  s.add_development_dependency 'rspec', '~> 3.6', '>= 3.6.0'
+  s.add_development_dependency 'rspec', '~> 3.12'
 
   s.files         = `find *`.split("\n").uniq.sort.select { |f| !f.empty? }
   s.test_files    = `find spec/*`.split("\n")
