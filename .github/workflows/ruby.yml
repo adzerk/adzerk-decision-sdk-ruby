@@ -32,6 +32,6 @@ jobs:
         mkdir -p $HOME/.gem
         touch $HOME/.gem/credentials
         chmod 0600 $HOME/.gem/credentials
-        curl -ugithub:${{ secrets.ARTIFACTORY_PASSWORD }} https://adzerkps.jfrog.io/artifactory/api/gems/gems/api/v1/api_key.yaml > ~/.gem/credentials
+        curl -H "Authorization: Bearer ${{ secrets.ARTIFACTORY_ACCESS_TOKEN }}" https://adzerkps.jfrog.io/artifactory/api/gems/gems/api/v1/api_key.yaml > ~/.gem/credentials
         rake build
         gem push --host https://adzerkps.jfrog.io/artifactory/api/gems/gems pkg/*.gem
