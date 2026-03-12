@@ -22,11 +22,15 @@ module AdzerkDecisionSdk
     # The assigned cohort for the User
     attr_accessor :group
 
+    # Array of Segment Ids that will override any set on the UserDB record for the User
+    attr_accessor :segments
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'key' => :'key',
-        :'group' => :'group'
+        :'group' => :'group',
+        :'segments' => :'segments'
       }
     end
 
@@ -39,7 +43,8 @@ module AdzerkDecisionSdk
     def self.openapi_types
       {
         :'key' => :'String',
-        :'group' => :'Integer'
+        :'group' => :'Integer',
+        :'segments' => :'Array<Integer>'
       }
     end
 
@@ -71,6 +76,12 @@ module AdzerkDecisionSdk
       if attributes.key?(:'group')
         self.group = attributes[:'group']
       end
+
+      if attributes.key?(:'segments')
+        if (value = attributes[:'segments']).is_a?(Array)
+          self.segments = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -92,7 +103,8 @@ module AdzerkDecisionSdk
       return true if self.equal?(o)
       self.class == o.class &&
           key == o.key &&
-          group == o.group
+          group == o.group &&
+          segments == o.segments
     end
 
     # @see the `==` method
@@ -104,7 +116,7 @@ module AdzerkDecisionSdk
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [key, group].hash
+      [key, group, segments].hash
     end
 
     # Builds the object from hash
